@@ -27,6 +27,9 @@ public class Controller {
 //        mav.addObject("wm", fetchDataService.findAll());
         mav.addObject("wm", wm);
         return mav;
+
+
+
     }
 
 
