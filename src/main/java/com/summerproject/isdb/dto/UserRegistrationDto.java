@@ -1,9 +1,16 @@
 package com.summerproject.isdb.dto;
 
 public class UserRegistrationDto {
+
+    private int user_id;
     private String fName;
     private String lName;
+
+    private int phone;
     private String email;
+
+    private String state;
+
     private String password;
 
     public UserRegistrationDto(String fName, String lName, String email, String password) {
@@ -11,6 +18,10 @@ public class UserRegistrationDto {
         this.lName = lName;
         this.email = email;
         this.password = password;
+    }
+
+    public UserRegistrationDto() {
+
     }
 
     public String getfName() {

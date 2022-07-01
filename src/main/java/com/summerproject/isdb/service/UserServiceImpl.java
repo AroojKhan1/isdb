@@ -19,6 +19,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserModel save(UserRegistrationDto registrationDto) {
         UserModel user = new UserModel(registrationDto.getfName(), registrationDto.getlName(), registrationDto.getEmail(), registrationDto.getPassword());
-        return null;
+        return userRepo.save(user);
     }
 }

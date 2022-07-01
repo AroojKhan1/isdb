@@ -39,6 +39,13 @@ public class UserModel {
     @Column(name = "password")
     String password;
 
+    public UserModel(String getfName, String getlName, String email, String password) {
+    }
+
+    public UserModel() {
+
+    }
+
     public Integer getId() {
         return id;
     }
