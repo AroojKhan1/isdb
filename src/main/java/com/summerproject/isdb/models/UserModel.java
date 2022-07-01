@@ -42,6 +42,20 @@ public class UserModel {
     public UserModel(String getfName, String getlName, String email, String password) {
     }
 
+    public UserModel(Integer id, String fName, String lname, Integer phone, String email,
+                     String state, String userType, String userName, Date dob, String password) {
+        this.id = id;
+        this.fName = fName;
+        Lname = lname;
+        this.phone = phone;
+        this.email = email;
+        this.state = state;
+        this.userType = userType;
+        UserName = userName;
+        this.dob = dob;
+        this.password = "password";
+    }
+
     public UserModel() {
 
     }
