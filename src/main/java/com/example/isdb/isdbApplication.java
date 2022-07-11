@@ -1,14 +1,13 @@
-package com.summerproject.isdb;
+package com.example.isdb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
 @SpringBootApplication
-public class IsdbApplication {
+public class isdbApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(IsdbApplication.class, args);
+        SpringApplication.run(isdbApplication.class, args);
     }
 
 }
