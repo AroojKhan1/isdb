@@ -21,7 +21,6 @@ public class WebsiteListController {
 
 
         ModelAndView mav = new ModelAndView("WebsiteList");
-//        mav.addObject("wm", fetchWebsiteData.findAll());
         mav.addObject("wm", wm);
         return mav;
 

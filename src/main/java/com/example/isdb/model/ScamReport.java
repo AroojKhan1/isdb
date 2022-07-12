@@ -23,8 +23,7 @@ public class ScamReport {
     @Column (name="report")
     private String report;
 
-    @Column (name="user_user_id")
-    private String user_user_id;
+
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="website_id", referencedColumnName = "id")
@@ -74,14 +73,6 @@ public class ScamReport {
 
     public void setReport(String report) {
         this.report = report;
-    }
-
-    public String getUser_user_id() {
-        return user_user_id;
-    }
-
-    public void setUser_user_id(String user_user_id) {
-        this.user_user_id = user_user_id;
     }
 
     public Website getWebsite() {
