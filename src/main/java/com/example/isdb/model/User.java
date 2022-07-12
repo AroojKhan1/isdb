@@ -1,19 +1,10 @@
 package com.example.isdb.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Collection;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-import javax.persistence.JoinColumn;
+import javax.persistence.*;
 
 
 @Entity
@@ -43,6 +34,12 @@ public class User {
                     name = "role_id", referencedColumnName = "id"))
 
     private Collection <Role> roles;
+
+
+    @OneToMany(mappedBy = "reportingUser")
+    @JsonIgnore
+    private Collection<ScamReport> userScamReports;
+
 
     public User() {
 
@@ -92,4 +89,8 @@ public class User {
     public void setRoles(Collection < Role > roles) {
         this.roles = roles;
     }
+    public Collection<ScamReport> getUserScamReports() {
+        return userScamReports;
+    }
+
 }

@@ -1,6 +1,11 @@
 package com.example.isdb.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "website")
@@ -43,6 +48,11 @@ public class Website {
     @Column(name = "age")
     private String age;
 
+
+
+    @OneToMany (mappedBy = "website")
+    @JsonIgnore
+    private Collection<ScamReport> scamReports;
     public Website() {
     }
 
@@ -157,5 +167,9 @@ public class Website {
 
     public void setAge(String age) {
         this.age = age;
+    }
+
+    public Collection<ScamReport> getScamReports() {
+        return scamReports;
     }
 }
