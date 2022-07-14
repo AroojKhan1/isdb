@@ -30,8 +30,6 @@ public class ScamReport {
     @ManyToMany(mappedBy = "reportedScams")
     private Collection<Website> websites;
 
-
-
     public long getId() {
         return id;
     }
@@ -40,12 +38,12 @@ public class ScamReport {
         this.id = id;
     }
 
-    public String getUser_type() {
-        return user_type;
+    public String getWebsite_name() {
+        return website_name;
     }
 
-    public void setUser_type(String user_type) {
-        this.user_type = user_type;
+    public void setWebsite_name(String website_name) {
+        this.website_name = website_name;
     }
 
     public String getUrl() {
@@ -56,14 +54,6 @@ public class ScamReport {
         this.url = url;
     }
 
-    public String getDomain_name() {
-        return website_name;
-    }
-
-    public void setDomain_name(String domain_name) {
-        this.website_name = domain_name;
-    }
-
     public String getReport() {
         return report;
     }
@@ -71,12 +61,13 @@ public class ScamReport {
     public void setReport(String report) {
         this.report = report;
     }
-    public Collection<Website> getWebsites() {
-        return websites;
+
+    public String getUser_type() {
+        return user_type;
     }
 
-    public void setWebsites(Collection<Website> websites) {
-        this.websites = websites;
+    public void setUser_type(String user_type) {
+        this.user_type = user_type;
     }
 
     public User getReportingUser() {
@@ -87,5 +78,11 @@ public class ScamReport {
         this.reportingUser = reportingUser;
     }
 
+    public Collection<Website> getWebsites() {
+        return websites;
+    }
 
+    public void setWebsites(Collection<Website> websites) {
+        this.websites = websites;
+    }
 }

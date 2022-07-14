@@ -19,7 +19,7 @@ public class ScamReportController {
     public ModelAndView getScamReports(Model model){
         List<ScamReport> sr = scamReportService.findAll();
 
-        ModelAndView mav =  new ModelAndView("ScamReport");
+        ModelAndView mav =  new ModelAndView("ScamReports");
         mav.addObject("sr", sr);
         return mav;
     }
