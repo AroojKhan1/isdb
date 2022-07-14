@@ -15,23 +15,24 @@ public class Website {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "website_name")
+    private String website_name;
+
     @Column(name = "url")
     private String url;
-
-    @Column(name = "scam_percentage")
-    private double scam_percentage;
 
     @Column(name = "domain_name")
     private String domain_name;
 
-    @Column(name = "website_name")
-    private String website_name;
+    @Column(name = "scam_percentage")
+    private double scam_percentage;
+
+    @Column(name = "virus_scan")
+    private String virus_scan;
 
     @Column(name = "similar_domain")
     private String similar_domain;
 
-    @Column(name = "virus_scan")
-    private String virus_scan;
 
     @Column(name = "redirected")
     private String redirected;
@@ -50,9 +51,14 @@ public class Website {
 
 
 
-    @OneToMany (mappedBy = "website")
-    @JsonIgnore
-    private Collection<ScamReport> scamReports;
+    @ManyToMany
+    @JoinTable(
+            name="Scams_reported",
+            joinColumns = @JoinColumn(name = "website_id"),
+            inverseJoinColumns = @JoinColumn(name = "scam_report_id")
+    )
+    private Collection <ScamReport> reportedScams;
+
     public Website() {
     }
 
@@ -170,6 +176,10 @@ public class Website {
     }
 
     public Collection<ScamReport> getScamReports() {
-        return scamReports;
+        return reportedScams;
+    }
+
+    public void setScamReports(Collection<ScamReport> scamReports) {
+        this.reportedScams = scamReports;
     }
 }

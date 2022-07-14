@@ -21,9 +21,29 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-    private String email;
+    @Column(name = "user_name")
+    private String user_name;
 
+    @Column(name = "email")
+    private String email;
+    @Column(name = "password")
     private String password;
+
+    @Column(name = "user_type")
+    private String user_type;
+
+    @Column(name = "state")
+    private String state;
+
+    @Column(name = "qualification")
+    private String qualification;
+
+    @Column(name = "occupation")
+    private String occupation;
+
+    @Column(name = "company")
+    private String company;
+
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
@@ -34,7 +54,6 @@ public class User {
                     name = "role_id", referencedColumnName = "id"))
 
     private Collection <Role> roles;
-
 
     @OneToMany(mappedBy = "reportingUser")
     @JsonIgnore
@@ -91,6 +110,58 @@ public class User {
     }
     public Collection<ScamReport> getUserScamReports() {
         return userScamReports;
+    }
+
+    public String getUser_type() {
+        return user_type;
+    }
+
+    public void setUser_type(String user_type) {
+        this.user_type = user_type;
+    }
+
+    public String getUser_name() {
+        return user_name;
+    }
+
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public void setUserScamReports(Collection<ScamReport> userScamReports) {
+        this.userScamReports = userScamReports;
+    }
+
+    public String getQualification() {
+        return qualification;
+    }
+
+    public void setQualification(String qualification) {
+        this.qualification = qualification;
+    }
+
+    public String getOccupation() {
+        return occupation;
+    }
+
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
     }
 
 }

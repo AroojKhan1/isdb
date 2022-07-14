@@ -1,5 +1,7 @@
 package com.example.isdb.model;
 
+        import com.fasterxml.jackson.annotation.JsonIgnore;
+
         import javax.persistence.*;
         import java.util.Collection;
 
@@ -10,28 +12,23 @@ public class ScamReport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @Column (name="user_type")
-    private String user_type;
-
+    @Column (name="website_name")
+    private String website_name;
     @Column (name="url")
     private String url;
-
-    @Column (name="domain_name")
-    private String domain_name;
-
     @Column (name="report")
     private String report;
-
-
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="website_id", referencedColumnName = "id")
-    private Website website;
+    @Column (name="user_type")
+    private String user_type;
 
     @ManyToOne
     @JoinColumn(name="reporting_user_id", referencedColumnName = "id")
     private User reportingUser;
+
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "reportedScams")
+    private Collection<Website> websites;
 
 
 
@@ -60,11 +57,11 @@ public class ScamReport {
     }
 
     public String getDomain_name() {
-        return domain_name;
+        return website_name;
     }
 
     public void setDomain_name(String domain_name) {
-        this.domain_name = domain_name;
+        this.website_name = domain_name;
     }
 
     public String getReport() {
@@ -74,12 +71,21 @@ public class ScamReport {
     public void setReport(String report) {
         this.report = report;
     }
-
-    public Website getWebsite() {
-        return website;
+    public Collection<Website> getWebsites() {
+        return websites;
     }
 
-    public void setWebsite(Website website) {
-        this.website = website;
+    public void setWebsites(Collection<Website> websites) {
+        this.websites = websites;
     }
+
+    public User getReportingUser() {
+        return reportingUser;
+    }
+
+    public void setReportingUser(User reportingUser) {
+        this.reportingUser = reportingUser;
+    }
+
+
 }
