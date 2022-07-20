@@ -64,6 +64,23 @@ public class User {
 
     }
 
+    public User(String firstName, String lastName, String user_name, String email, String user_type,
+                String state, String qualification, String occupation, String company, String password, Collection<Role> roles) {
+
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.user_name = user_name;
+        this.email = email;
+        this.password = password;
+        this.user_type = user_type;
+        this.state = state;
+        this.qualification = qualification;
+        this.occupation = occupation;
+        this.company = company;
+        this.roles = roles;
+
+    }
+
     public User(String firstName, String lastName, String email, String password, Collection < Role > roles) {
         super();
         this.firstName = firstName;
