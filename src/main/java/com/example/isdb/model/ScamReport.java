@@ -30,6 +30,10 @@ public class ScamReport {
     @ManyToMany(mappedBy = "reportedScams")
     private Collection<Website> websites;
 
+    public ScamReport() {
+
+    }
+
     public long getId() {
         return id;
     }
@@ -84,5 +88,12 @@ public class ScamReport {
 
     public void setWebsites(Collection<Website> websites) {
         this.websites = websites;
+    }
+
+    public ScamReport(String website_name, String url, String report, String user_type) {
+        this.website_name = website_name;
+        this.url = url;
+        this.report = report;
+        this.user_type = user_type;
     }
 }
