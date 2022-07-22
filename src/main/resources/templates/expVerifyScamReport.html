@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verify Scam Report</title>
+
+</head>
+<body>
+ <h1>Verify Scam Report</h1>
+ <div class = "container">
+
+     <hr/>
+
+     <table class="table table-bordered table-striped">
+         <thread>
+             <tr>
+
+                 <th>Website Name</th>
+
+
+             </tr>
+         </thread>
+
+         <tbody>
+         <tr th:each="website: ${wm}">
+
+             <td th:text = "${website.website_name}"/>
+
+         </tr>
+         </tbody>
+
+     </table>
+ </div>
+
+</body>
+</html>

@@ -77,6 +77,17 @@
         color: white;
     }
 
+    .button4 {
+        background-color: white;
+        color: black;
+        border: 2px solid #008CBA;
+    }
+
+    .button4:hover {
+        background-color: #008CBA;
+        color: white;
+    }
+
 </style>
 
 
@@ -84,7 +95,9 @@
 <!--<button class="button button1" >Website db</button>-->
 <a class = "button button1" href="#" th:href="@{/list}">Website List</a>
 <a class = "button button2" href="#" th:href="@{/scamReports}">Scam Reports</a>
+<a class = "button button3" href="#" th:href="@{/userScamReport}">Report a Scam</a>
 
-<button class="button button3">Report a scam</button>
+<button class="button button4" >Verify Scam Reports</button>
+
 </body>
 </html>
