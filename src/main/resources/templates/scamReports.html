@@ -32,7 +32,13 @@
 <div class = "container">
 
     <hr/>
-
+    <form th:action="@{/search}" method="get">
+        <input type="text" name="keyword" th:value="${keyword}"  placeholder="Find by website name" size="50" >
+        <button type="submit" class="btn btn-info" >Search</button>
+        <button type="submit" class="btn btn-info" >Reset</button>
+    </form>
+    <br>
+    <br/>
     <table class="table table-bordered table-striped">
         <thread>
             <tr>
@@ -41,6 +47,7 @@
                 <th>URL</th>
                 <th>Report</th>
                 <th>User Type</th>
+                <th>Verified</th>
 
             </tr>
         </thread>
@@ -52,6 +59,7 @@
             <td th:text = "${scamreport.url}"/>
             <td th:text = "${scamreport.report}"/>
             <td th:text = "${scamreport.user_type}"/>
+            <td th:text = "${scamreport.verified}"/>    
         </tr>
         </tbody>
 

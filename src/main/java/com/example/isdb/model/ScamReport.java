@@ -1,7 +1,6 @@
 package com.example.isdb.model;
 
         import com.fasterxml.jackson.annotation.JsonIgnore;
-
         import javax.persistence.*;
         import java.util.Collection;
 
@@ -12,7 +11,7 @@ public class ScamReport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column (name="website_name")
+    @Column (name = "website_name")
     private String website_name;
     @Column (name="url")
     private String url;
@@ -21,7 +20,11 @@ public class ScamReport {
     @Column (name="user_type")
     private String user_type;
 
-    @ManyToOne
+    @Column (name="verified")
+    private String verified;
+
+
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="reporting_user_id", referencedColumnName = "id")
     private User reportingUser;
 
@@ -90,10 +93,32 @@ public class ScamReport {
         this.websites = websites;
     }
 
+    public String getVerified() {
+        return verified;
+    }
+
+    public void setVerified(String verified) {
+        this.verified = verified;
+    }
+
     public ScamReport(String website_name, String url, String report, String user_type) {
         this.website_name = website_name;
         this.url = url;
         this.report = report;
         this.user_type = user_type;
+    }
+
+    @Override
+    public String toString() {
+        return "ScamReport{" +
+                "id=" + id +
+                ", website_name='" + website_name + '\'' +
+                ", url='" + url + '\'' +
+                ", report='" + report + '\'' +
+                ", user_type='" + user_type + '\'' +
+                ", verified='" + verified + '\'' +
+                ", reportingUser=" + reportingUser +
+                ", websites=" + websites +
+                '}';
     }
 }

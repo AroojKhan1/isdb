@@ -1,6 +1,6 @@
 package com.example.isdb.web;
 
-import com.example.isdb.Service.ScamReportService;
+import com.example.isdb.Repository.ScamReportRepository;
 import com.example.isdb.model.ScamReport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 public class ScamReportController {
     @Autowired
-    ScamReportService scamReportService;
+    ScamReportRepository scamReportService;
 
     @GetMapping({"/scamReports"})
     public ModelAndView getScamReports(Model model){

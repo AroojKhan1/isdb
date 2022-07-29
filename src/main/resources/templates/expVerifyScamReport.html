@@ -1,36 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Verify Scam Report</title>
+    <meta charset="ISO-8859-1">
+    <title>ExpVerifyScamReport</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+
+    <style>
+        div {
+            margin: 10px;
+        }
+        label {
+            display: inline-block;
+            width: 150px;
+            text-align: left;
+        }
+    </style>
 
 </head>
 <body>
- <h1>Verify Scam Report</h1>
- <div class = "container">
+<div align ="center">
+    <h1>ExpVerifyScamReport</h1>
+    <br>
+    <br/>
+    <form action="#" th:action="@{/expVerifyScamReport}" method="post" th:object="${w}">
+        <span style="font-style: italic;" th:text="${w != null} ? ${#strings.toUpperCase(w.website_name)} : 'user is null'">
+        <label>Website Name:</label>
+            <input type="text" th:field="*{website_name}" /><br/>
+            </span>
+    </form>
 
-     <hr/>
+</div>
 
-     <table class="table table-bordered table-striped">
-         <thread>
-             <tr>
-
-                 <th>Website Name</th>
-
-
-             </tr>
-         </thread>
-
-         <tbody>
-         <tr th:each="website: ${wm}">
-
-             <td th:text = "${website.website_name}"/>
-
-         </tr>
-         </tbody>
-
-     </table>
- </div>
 
 </body>
 </html>

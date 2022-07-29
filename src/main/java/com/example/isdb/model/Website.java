@@ -29,13 +29,6 @@ public class Website {
     @Column(name = "virus_scan")
     private String virus_scan;
 
-    @Column(name = "similar_domain")
-    private String similar_domain;
-
-
-    @Column(name = "redirected")
-    private String redirected;
-
     @Column(name = "secure")
     private String secure;
 
@@ -47,6 +40,23 @@ public class Website {
 
     @Column(name = "age")
     private String age;
+
+    @Column(name = "redirected")
+    private String redirected;
+    @Column(name = "similar_domain")
+    private String similar_domain;
+
+    @Column(name = "pop_ups")
+    private String pop_ups;
+    @Column(name = "ads")
+    private String ads;
+    @Column(name = "funky_ui")
+    private String funky_ui;
+    @Column(name = "flashy_images")
+    private String flashy_images;
+    @Column(name = "offers_gifts")
+    private String offers_gifts;
+
 
 
 
@@ -76,6 +86,30 @@ public class Website {
         this.num_reports = num_reports;
         this.linked_in_emps = linked_in_emps;
         this.age = age;
+    }
+
+    public Website(Long id, String website_name, String url, String domain_name, double scam_percentage,
+                   String virus_scan, String secure, Integer num_reports, String linked_in_emps, String age,
+                   String redirected, String similar_domain, String pop_ups, String ads, String funky_ui,
+                   String flashy_images, String offers_gifts, Collection<ScamReport> reportedScams) {
+        this.id = id;
+        this.website_name = website_name;
+        this.url = url;
+        this.domain_name = domain_name;
+        this.scam_percentage = scam_percentage;
+        this.virus_scan = virus_scan;
+        this.secure = secure;
+        this.num_reports = num_reports;
+        this.linked_in_emps = linked_in_emps;
+        this.age = age;
+        this.redirected = redirected;
+        this.similar_domain = similar_domain;
+        this.pop_ups = pop_ups;
+        this.ads = ads;
+        this.funky_ui = funky_ui;
+        this.flashy_images = flashy_images;
+        this.offers_gifts = offers_gifts;
+        this.reportedScams = reportedScams;
     }
 
     public Long getId() {
@@ -180,5 +214,53 @@ public class Website {
 
     public void setScamReports(Collection<ScamReport> scamReports) {
         this.reportedScams = scamReports;
+    }
+
+    public String getPop_ups() {
+        return pop_ups;
+    }
+
+    public void setPop_ups(String pop_ups) {
+        this.pop_ups = pop_ups;
+    }
+
+    public String getAds() {
+        return ads;
+    }
+
+    public void setAds(String ads) {
+        this.ads = ads;
+    }
+
+    public String getFunky_ui() {
+        return funky_ui;
+    }
+
+    public void setFunky_ui(String funky_ui) {
+        this.funky_ui = funky_ui;
+    }
+
+    public String getFlashy_images() {
+        return flashy_images;
+    }
+
+    public void setFlashy_images(String flashy_images) {
+        this.flashy_images = flashy_images;
+    }
+
+    public String getOffers_gifts() {
+        return offers_gifts;
+    }
+
+    public void setOffers_gifts(String offers_gifts) {
+        this.offers_gifts = offers_gifts;
+    }
+
+    public Collection<ScamReport> getReportedScams() {
+        return reportedScams;
+    }
+
+    public void setReportedScams(Collection<ScamReport> reportedScams) {
+        this.reportedScams = reportedScams;
     }
 }
