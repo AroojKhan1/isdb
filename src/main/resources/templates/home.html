@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="ISO-8859-1">
     <title>Home</title>
@@ -88,17 +89,44 @@
         color: white;
     }
 
+    /*logo {*/
+    /*    display: inline-block;*/
+    /*    margin: 15px; !* margin: 20px was off *!*/
+    /*    float: left;*/
+    /*    height: 60px;*/
+    /*    width: auto; !* correct proportions to specified height *!*/
+    /*    border-radius: 50%; !* makes it a circle *!*/
+    /*}*/
+
+
+
+
 </style>
 
 
 <!--<a class="navbar-brand" href="#" th:href="@{/}">Website List</a>-->
 <!--<button class="button button1" >Website db</button>-->
-<a class = "button button1" href="#" th:href="@{/list}">Website List</a>
-<a class = "button button2" href="#" th:href="@{/scamReports}">Scam Reports</a>
-<a class = "button button3" href="#" th:href="@{/userScamReport}">Report a Scam</a>
-<a class = "button button4" href="#" th:href="@{/expScamReport}">Verify Scam Reports</a>
+
+
+
+
+<div>
+    <a class = "button button1" href="#" th:href="@{/list}">Website List</a>
+    <a class = "button button2" href="#" th:href="@{/scamReports}">Scam Reports</a>
+    <a class = "button button3" href="#" th:href="@{/userScamReport}">Report a Scam</a>
+    <a class = "button button4" href="#" th:href="@{/expScamReport}">Verify Scam Reports</a>
+</div>
+
+
+<div>
+    <img th:src="@{src/main/resources/images/CBISDB logo.png}"/>
+</div>
+
+
+
 
 
 
 </body>
+</html>
 </html>

@@ -17,7 +17,21 @@
             display: inline-block;
             width: 150px;
             text-align: left;
+
+            /*width: 320px;*/
+            /*padding: 10px;*/
+            /*border: 5px solid gray;*/
+            /*margin: 0;*/
         }
+
+        /*div {*/
+        /*    width: 320px;*/
+        /*    padding: 10px;*/
+        /*    border: 5px solid gray;*/
+        /*    margin: 0;*/
+        /*}*/
+
+
     </style>
 
 </head>
@@ -43,6 +57,23 @@
             <input type="text" th:field="*{ads}"/><br/>
         </div>
 
+        <div class="container">
+            <label>How old is this website?:</label>
+            <input type="text" th:field="*{age}"/>
+
+
+            <!--            <a href="https://whois.domaintools.com/">-->
+            <!--                <input type="button" value="Find age" />-->
+            <!--            </a>-->
+            <br/>
+            <span>Dont know how old it is?
+                <a href="https://whois.domaintools.com/">(Find age)</a>
+            </span>
+
+
+            <br/>
+        </div>
+
         <div>
             <label>Funky UI?:</label>
             <input type="text" th:field="*{funky_ui}"/><br/>
@@ -58,6 +89,8 @@
             <input type="text" th:field="*{offers_gifts}"/><br/>
         </div>
 
+
+
         <br>
         <br>
 
@@ -67,8 +100,8 @@
         <button type="submit" class="button button1"> validate</button>
     </form>
 
-<!--    <form method="POST" th:action="@{'/submit/' + ${id}}">-->
-<!--    </form>-->
+    <!--    <form method="POST" th:action="@{'/submit/' + ${id}}">-->
+    <!--    </form>-->
 </div>
 
 

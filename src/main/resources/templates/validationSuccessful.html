@@ -13,16 +13,38 @@
             width: 200px;
             text-align: left;
         }
+
+        /*center {*/
+        /*    text-align: center;*/
+        /*    border: 3px solid green;*/
+        /*}*/
+
+        div {
+            width: 600px;
+            border: 15px solid green;
+            padding: 50px;
+            margin: 20px;
+            text-align: center;
+        }
+
+        /*center {*/
+        /*    margin: auto;*/
+        /*    width: 50%;*/
+        /*    border: 3px solid green;*/
+        /*    padding: 10px;*/
+        /*}*/
     </style>
 </head>
 <body>
 <div align="center">
     <h2>Validation Succeeded!</h2>
-    <h3 th:text= "${message}"> message </h3>
+<!--    <h3 th:text= "${message}"> message </h3>-->
 
     <span>Unnecessary Popups?:</span><span th:text="${w.pop_ups}"></span><br/>
     <span>Redirects?:</span><span th:text="${w.redirected}"></span><br/>
     <span>Loaded with ads?:</span><span th:text="${w.ads}"></span><br/>
+
+    <span>Age?:</span><span th:text="${w.age}"></span><br/>
 
     <span>Funky UI?:</span><span th:text="${w.funky_ui}"></span><br/>
     <span>Redirects?:</span><span th:text="${w.redirected}"></span><br/>
@@ -31,5 +53,7 @@
     <span>offers gifts?:</span><span th:text="${w.offers_gifts}"></span><br/>
 
 </div>
+
+
 </body>
 </html>
