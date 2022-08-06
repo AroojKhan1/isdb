@@ -19,14 +19,17 @@ import java.util.List;
 @Controller
 public class ExpVerifyScamReportController {
 
-//
+    //
 //    @Autowired
 //    FetchWebsiteData fetchWebsiteData;
-//    @Autowired
-//    ExpVerifyService evs;
+    @Autowired
+    ExpVerifyService evs;
 //
 //    @Autowired
 //    ExpVerifyScamReportRepository evsrr;
+
+
+    private Website w;
 
 //
 //    @GetMapping({"/expVerifyScamReport"})
@@ -43,20 +46,6 @@ public class ExpVerifyScamReportController {
 //        return "reportSuccess";
 //    }
 
-//    @PostMapping({"/validateStatus/{id}"})
-//    public ModelAndView updateVerificationStatus(Model model, @PathVariable Long id){
-//        List<ScamReport> sr = scamReportService.findAll();
-//
-//        ModelAndView mav =  new ModelAndView("validateStatus");
-//        mav.addObject("sr", sr);
-//
-//        System.out.println("id"+id);
-//        evs.updateVerificationFlag(id);
-//
-//
-//        return mav;
-//    }
-
 
     @Autowired
     ScamReportRepository scamReportService;
@@ -69,15 +58,30 @@ public class ExpVerifyScamReportController {
 
         ModelAndView mav = new ModelAndView("expScamReport");
         mav.addObject("sr", sr);
+        System.out.println(sr.get(0).getId());
         return mav;
     }
 
+//    @PostMapping({"/validateStatus/{id}"})
+//    public ModelAndView updateVerificationStatus(Model model, @PathVariable Long id) {
+//        System.out.println("validate status");
+//        List<ScamReport> srv = scamReportService.findAll();
+//
+//        ModelAndView mav = new ModelAndView("validateStatus");
+//        mav.addObject("srv", srv);
+//
+//        System.out.println("id" + id);
+//        evs.updateVerificationFlag(id);
+//
+//
+//        return mav;
+//    }
 
 
     @PostMapping({"/validateStatus/{id}"})
-    public String showForm(Model model) {
-        Website w = new Website();
-        model.addAttribute("w", w);
+    public String showForm(Model model, @PathVariable Long id) {
+        model.addAttribute("w", new Website());
+        model.addAttribute("id", id);
 
 //        List<String> listProfession = Arrays.asList("Developer", "Tester", "Architect");
 //        model.addAttribute("listProfession", listProfession);
@@ -86,9 +90,11 @@ public class ExpVerifyScamReportController {
         return "validateStatus";
     }
 
-    @PostMapping("/validateStatus")
-    public String submitForm(@ModelAttribute("w") Website w) {
+    @PostMapping("/submit/{id}")
+    public String submitForm(@ModelAttribute("w") Website w, @PathVariable Long id) {
+        System.out.println("bkwas");
         System.out.println(w);
+        evs.updateVerificationFlag(id);
         Website websiteValidated = wrepo.save(w);
         return "validationSuccessful";
     }

@@ -12,6 +12,7 @@
         div {
             margin: 10px;
         }
+
         label {
             display: inline-block;
             width: 150px;
@@ -21,56 +22,53 @@
 
 </head>
 <body>
-<div align ="center">
-    <h1>VAlidate Status Here</h1>
+<div align="center">
+    <h1>Validate Status Here</h1>
     <br>
     <br/>
-    <form action="#" th:action="@{/validateStatus}" method="post" th:object="${w}">
+    <form th:action="@{'/submit/' + ${id}}" method="post" th:object="${w}">
 
-<!--        <form method="POST" th:action="@{'/validateStatus/' + ${sr.id}}">-->
-
-        <label>Unnecessary Popups?:</label>
-        <input type="text" th:field="*{pop_ups}" /><br/>
+        <div>
+            <label>Unnecessary Popups?:</label>
+            <input type="text" th:field="*{pop_ups}"/><br/>
+        </div>
 
         <div>
             <label>Redirects?:</label>
-            <input type="text" th:field="*{redirected}" /><br/>
+            <input type="text" th:field="*{redirected}"/><br/>
         </div>
 
         <div>
-            <label>loaded with ads??:</label>
-            <input type="text" th:field="*{ads}" /><br/>
+            <label>Loaded with ads?:</label>
+            <input type="text" th:field="*{ads}"/><br/>
         </div>
 
         <div>
-            <label>funky_ui??:</label>
-            <input type="text" th:field="*{funky_ui}" /><br/>
+            <label>Funky UI?:</label>
+            <input type="text" th:field="*{funky_ui}"/><br/>
         </div>
 
         <div>
-            <label>flashy images??:</label>
-            <input type="text" th:field="*{flashy_images}" /><br/>
+            <label>Flashy images?:</label>
+            <input type="text" th:field="*{flashy_images}"/><br/>
         </div>
 
         <div>
-            <label>offers gifts??:</label>
-            <input type="text" th:field="*{offers_gifts}" /><br/>
+            <label>offers gifts?:</label>
+            <input type="text" th:field="*{offers_gifts}"/><br/>
         </div>
 
-
-
-
-
-
-        <!--        <label>user_type:</label>-->
-        <!--        <input type="text" th:field="*{user_type}" /><br/>-->
         <br>
-        <br/>
-        <button type="submit" class="btn btn-success"> validate </button>
-        <span>Already reported? <a href="/" th:href="@{/scamReports}">View  here</a>
-        </span>
+        <br>
+
+        <span>Already validated? <a href="/" th:href="@{/list}">View  here</a></span>
+
+        <br>
+        <button type="submit" class="button button1"> validate</button>
     </form>
 
+<!--    <form method="POST" th:action="@{'/submit/' + ${id}}">-->
+<!--    </form>-->
 </div>
 
 

@@ -263,4 +263,28 @@ public class Website {
     public void setReportedScams(Collection<ScamReport> reportedScams) {
         this.reportedScams = reportedScams;
     }
+
+    @Override
+    public String toString() {
+        return "Website{" +
+                "id=" + id +
+                ", website_name='" + website_name + '\'' +
+                ", url='" + url + '\'' +
+                ", domain_name='" + domain_name + '\'' +
+                ", scam_percentage=" + scam_percentage +
+                ", virus_scan='" + virus_scan + '\'' +
+                ", secure='" + secure + '\'' +
+                ", num_reports=" + num_reports +
+                ", linked_in_emps='" + linked_in_emps + '\'' +
+                ", age='" + age + '\'' +
+                ", redirected='" + redirected + '\'' +
+                ", similar_domain='" + similar_domain + '\'' +
+                ", pop_ups='" + pop_ups + '\'' +
+                ", ads='" + ads + '\'' +
+                ", funky_ui='" + funky_ui + '\'' +
+                ", flashy_images='" + flashy_images + '\'' +
+                ", offers_gifts='" + offers_gifts + '\'' +
+                ", reportedScams=" + reportedScams +
+                '}';
+    }
 }

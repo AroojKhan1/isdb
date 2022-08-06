@@ -50,9 +50,9 @@
              <td th:text = "${sr.website_name}"/>
              <td>
 
+<!--                 <form method="POST" th:action="@{'/validateStatus/' + ${sr.id}}">-->
                  <form method="POST" th:action="@{'/validateStatus/' + ${sr.id}}">
-<!--                 <form method="POST" th:action="@{'/expVerifyScamReport'}">-->
-                     <button type="submit" name="submit" value="value" class="button button1">Validate Status</button>
+                     <button type="submit" class="button button1">Validate Status</button>
                  </form>
              </td>
          </tr>

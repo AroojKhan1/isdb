@@ -20,9 +20,15 @@
     <h2>Validation Succeeded!</h2>
     <h3 th:text= "${message}"> message </h3>
 
-<!--    <span>Website name:</span><span th:text="${sr.website_name}"></span><br/>-->
-<!--    <span>URL:</span><span th:text="${sr.url}"></span><br/>-->
-<!--    <span>Complaint:</span><span th:text="${sr.report}"></span><br/>-->
+    <span>Unnecessary Popups?:</span><span th:text="${w.pop_ups}"></span><br/>
+    <span>Redirects?:</span><span th:text="${w.redirected}"></span><br/>
+    <span>Loaded with ads?:</span><span th:text="${w.ads}"></span><br/>
+
+    <span>Funky UI?:</span><span th:text="${w.funky_ui}"></span><br/>
+    <span>Redirects?:</span><span th:text="${w.redirected}"></span><br/>
+    <span>Flashy images??:</span><span th:text="${w.flashy_images}"></span><br/>
+
+    <span>offers gifts?:</span><span th:text="${w.offers_gifts}"></span><br/>
 
 </div>
 </body>
