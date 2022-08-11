@@ -32,7 +32,7 @@ public class UserScamReportController {
 
     @PostMapping("/userScamReport")
     public String submitForm(@ModelAttribute("sr") ScamReport sr){
-        System.out.println(sr);
+
         ScamReport reportInserted = srepo.save(sr);
         return "reportSuccess";
     }

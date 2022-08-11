@@ -42,9 +42,10 @@
 
 
 <style>
-    body{
+    body {
         margin: 10px 60px;
     }
+
     .button {
         border: none;
         color: white;
@@ -69,11 +70,21 @@
         color: white;
     }
 
+    .button2 {
+        background-color: white;
+        color: black;
+        border: 2px solid #4CAF50;
+    }
+
+    .button2:hover {
+        background-color: #4CAF50;
+        color: white;
+    }
+
     textarea {
         width: 60%;
         height: 80px;
     }
-
 
 
 </style>
@@ -82,13 +93,35 @@
 <!--<input type="text" id="content" style="width: 500px; height: 200px">-->
 
 
-
 <!--<a class="navbar-brand" href="#" th:href="@{/}">Website List</a>-->
 <!--<button class="button button1" >Website db</button>-->
-<a class = "button button1" href="#" th:href="@{/forumIndex}">PostHere</a>
+<a class="button button1" href="#" th:href="@{/forumIndex}">PostHere</a>
 
 
+<a class="button button2" href="#" th:href="@{/}"> test</a>
 
+<form action="#" th:action="@{/addPost}" method="post" th:object="${p}">
+
+    <label>title:</label>
+    <input type="text" th:field="*{title}"/><br/>
+
+    <label>Whats up techie:</label>
+    <input type="text" th:field="*{content}"/><br/>
+
+    <label>date:</label>
+    <input type="date" th:field="*{date}"/><br/>
+
+
+<!--    <label>time:</label>-->
+<!--    <input type="time" th:field="*{time}"/><br/>-->
+
+
+    <br>
+    <br/>
+        <button type="submit" class="btn btn-success"> post </button>
+    <!--    <span>Already reported? <a href="/" th:href="@{/scamReports}">View  here</a>-->
+    </span>
+</form>
 
 </body>
 </html>
