@@ -21,7 +21,7 @@
                     class="icon-bar"></span> <span class="icon-bar"></span> <span
                     class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#" th:href="@{/}">Forum
+            <a class="navbar-brand" href="#" th:href="@{/static}">Forum
             </a>
         </div>
     </div>
@@ -35,7 +35,7 @@
     <div class="header">
     </div>
     <textarea></textarea>
-    <button>add comment</button>
+
     <div class="comments">
     </div>
 </div>
@@ -95,10 +95,11 @@
 
 <!--<a class="navbar-brand" href="#" th:href="@{/}">Website List</a>-->
 <!--<button class="button button1" >Website db</button>-->
-<a class="button button1" href="#" th:href="@{/forumIndex}">PostHere</a>
+<!--<a class="button button1" href="#" th:href="@{/forumIndex}">PostHere</a>-->
 
+<button type="submit" class="btn btn-success"> Post here</button>
 
-<a class="button button2" href="#" th:href="@{/}"> test</a>
+<!--<a class="button button2" href="#" th:href="@{/}"> test</a>-->
 
 <form action="#" th:action="@{/addPost}" method="post" th:object="${p}">
 
