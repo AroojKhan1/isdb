@@ -1,137 +1,101 @@
-<!--<body>-->
-<!--<div class="top-bar">-->
-<!--    <h1>-->
-<!--        Scam News-->
-<!--    </h1>-->
-<!--</div>-->
-<!--<div class="main">-->
-<!--    <div class="header">-->
-<!--    </div>-->
-<!--    <textarea></textarea>-->
-<!--    <button>add comment</button>-->
-<!--    <div class="comments">-->
-<!--    </div>-->
-<!--</div>-->
-<!--<script src="../static/data.js"></script>-->
-<!--<script>-->
-<!--    var id = window.location.search.slice(1);-->
-<!--    var thread = threads.find(t => t.id == id);-->
-<!--    var header = document.querySelector('.header');-->
-<!--    var headerHtml = `-->
-<!--            <h4 class="title">-->
-<!--                ${thread.title}-->
-<!--            </h4>-->
-<!--            <div class="bottom">-->
-<!--                <p class="timestamp">-->
-<!--                    ${new Date(thread.date).toLocaleString()}-->
-<!--                </p>-->
-<!--                <p class="comment-count">-->
-<!--                    ${thread.comments.length} comments-->
-<!--                </p>-->
-<!--            </div>-->
-<!--        `-->
-<!--    header.insertAdjacentHTML('beforeend', headerHtml)-->
 
-<!--    function addComment(comment) {-->
-<!--        var commentHtml = `-->
-<!--                <div class="comment">-->
-<!--                    <div class="top-comment">-->
-<!--                        <p class="user">-->
-<!--                            ${comment.author}-->
-<!--                        </p>-->
-<!--                        <p class="comment-ts">-->
-<!--                            ${new Date(comment.date).toLocaleString()}-->
-<!--                        </p>-->
-<!--                    </div>-->
-<!--                    <div class="comment-content">-->
-<!--                        ${comment.content}-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            `-->
-<!--        comments.insertAdjacentHTML('beforeend', commentHtml);-->
-<!--    }-->
+<!DOCTYPE html>
+<html lang="en"> xmlns:th=http://www.thymeleaf.org>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>tea</title>
 
-<!--    var comments = document.querySelector('.comments');-->
-<!--    for (let comment of thread.comments) {-->
-<!--        addComment(comment);-->
-<!--    }-->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+</head>
+<body>
 
-<!--    var btn = document.querySelector('button');-->
-<!--    btn.addEventListener('click', function () {-->
-<!--        var txt = document.querySelector('textarea');-->
-<!--        var comment = {-->
-<!--            content: txt.value,-->
-<!--            date: Date.now(),-->
-<!--            author: 'Aaron'-->
-<!--        }-->
-<!--        addComment(comment);-->
-<!--        txt.value = '';-->
-<!--        thread.comments.push(comment);-->
-<!--        localStorage.setItem('threads', JSON.stringify(threads));-->
-<!--    })-->
-<!--</script>-->
-<!--<style>-->
-<!--    body {-->
-<!--        margin: 10px 60px;-->
-<!--    }-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" th:href="@{/}">Scam Reports</a>
+        </div>
+    </div>
+</nav>
 
-<!--    a {-->
-<!--        text-decoration: none;-->
-<!--        color: black;-->
-<!--    }-->
+<br>
+<br/>
+<br>
+<br/>
+<br>
+<br/>
+<br>
+<br/>
+<div class = "container">
 
-<!--    h1, h4, ol {-->
-<!--        margin: 0;-->
-<!--    }-->
 
-<!--    p {-->
-<!--        margin: 5px 0;-->
-<!--    }-->
+    <table class="table table-bordered table-striped">
+        <thread>
+            <tr>
+                <th>ID</th>
+                <th>Website Name</th>
+                <th>URL</th>
 
-<!--    textarea {-->
-<!--        width: 80%;-->
-<!--        height: 80px;-->
-<!--    }-->
 
-<!--    button {-->
-<!--        display: block;-->
-<!--        margin: 10px 0;-->
-<!--    }-->
+            </tr>
+        </thread>
 
-<!--    .top-bar {-->
-<!--        background-color: skyblue;-->
-<!--        padding: 0 40px;-->
-<!--    }-->
+        <tbody>
+        <tr th:each="posts: ${pm}">
+            <td th:text = "${posts.title}"/>
+            <td th:text = "${posts.content}"/>
+            <td th:text = "${posts.date}"/>
 
-<!--    .main {-->
-<!--        background-color: #F6F6EF;-->
-<!--        padding: 10px 40px;-->
-<!--    }-->
+        </tbody>
 
-<!--    .comments {-->
-<!--        margin: 40px 0;-->
-<!--    }-->
+    </table>
 
-<!--    .comment {-->
-<!--        margin: 10px 0;-->
-<!--    }-->
 
-<!--    .row {-->
-<!--        padding: 5px 0;-->
-<!--    }-->
+</div>
 
-<!--    .bottom, .top-comment {-->
-<!--        display: flex;-->
-<!--        color: grey;-->
-<!--        font-size: 12px;-->
-<!--    }-->
+<style>
+    .button {
+        border: none;
+        color: white;
+        padding: 14px 30px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        /*left: 55%;*/
+        position: relative;
+        left: 1225px;
+    }
 
-<!--    .timestamp {-->
-<!--        padding-right: 10px;-->
-<!--    }-->
+    .button1 {
+        background-color: white;
+        color: black;
+        border: 2px solid #4CAF50;
+    }
 
-<!--    .comment-ts {-->
-<!--        padding-left: 10px;-->
-<!--    }-->
-<!--</style>-->
-<!--</body>-->
+    .button1:hover {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+
+
+</style>
+
+
+<a class = "button button1" href="#" th:href="@{/home}">Report a cyber crime!</a>
+
+</body>
+</html>

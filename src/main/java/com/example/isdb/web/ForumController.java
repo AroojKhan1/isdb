@@ -1,15 +1,19 @@
 package com.example.isdb.web;
 
 import com.example.isdb.Repository.PostRepository;
+import com.example.isdb.Service.FetchWebsiteData;
 import com.example.isdb.model.Post;
-import com.example.isdb.model.ScamReport;
 import com.example.isdb.model.User;
+import com.example.isdb.model.Website;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 public class ForumController {
@@ -18,8 +22,10 @@ public class ForumController {
     PostRepository pRepo;
 
     private User u;
+    private SpringMVCController smvc;
+
     @GetMapping("/forumIndex")
-    public String getForm(Model model){
+    public String getForm(Model model) {
         Post p = new Post();
         model.addAttribute("p", p);
 
@@ -27,18 +33,25 @@ public class ForumController {
     }
 
     @PostMapping("/forumIndex")
-    public String addPost(@ModelAttribute("p") Post p){
+    public String addPost(@ModelAttribute("p") Post p) {
         System.out.println(p);
+
+//        System.out.println(smvc.currentUserName());
+
         Post newPost = pRepo.save(p);
 
 
-        return "forumIndex";
+        return "postMade";
     }
 
-//    @PostMapping("/userScamReport")
-//    public String submitForm(@ModelAttribute("sr") ScamReport sr){
-//        System.out.println(sr);
-//        ScamReport reportInserted = srepo.save(sr);
-//        return "reportSuccess";
-//    }
+    //knowledge hub / knowlede base
+    @GetMapping({"/forumThread"})
+    public ModelAndView getPosts(Model model) {
+
+        List<Post> pm = pRepo.findAll();
+
+        ModelAndView mav = new ModelAndView("forumThread");
+        mav.addObject("pm", pm);
+        return mav;
+    }
 }
