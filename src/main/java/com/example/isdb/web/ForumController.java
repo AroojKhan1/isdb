@@ -3,6 +3,7 @@ package com.example.isdb.web;
 import com.example.isdb.Repository.PostRepository;
 import com.example.isdb.model.Post;
 import com.example.isdb.model.ScamReport;
+import com.example.isdb.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,8 @@ public class ForumController {
 
     @Autowired
     PostRepository pRepo;
+
+    private User u;
     @GetMapping("/forumIndex")
     public String getForm(Model model){
         Post p = new Post();
@@ -23,7 +26,7 @@ public class ForumController {
         return "forumIndex";
     }
 
-    @PostMapping("/addPost")
+    @PostMapping("/forumIndex")
     public String addPost(@ModelAttribute("p") Post p){
         System.out.println(p);
         Post newPost = pRepo.save(p);

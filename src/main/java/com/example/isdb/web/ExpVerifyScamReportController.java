@@ -18,35 +18,10 @@ import java.util.List;
 
 @Controller
 public class ExpVerifyScamReportController {
-
-    //
-//    @Autowired
-//    FetchWebsiteData fetchWebsiteData;
     @Autowired
     ExpVerifyService evs;
-//
-//    @Autowired
-//    ExpVerifyScamReportRepository evsrr;
-
 
     private Website w;
-
-//
-//    @GetMapping({"/expVerifyScamReport"})
-//    public String verifyScamReports(Model model){
-//        Website w = new Website();
-//        model.addAttribute("w", w);
-//        return "expVerifyScamReport";
-//    }
-//
-//    @PostMapping("/expVerifyScamReport")
-//    public String submitForm(@ModelAttribute("w") Website w){
-//        System.out.println(w);
-//        Website websiteInserted = evsrr.save(w);
-//        return "reportSuccess";
-//    }
-
-
     @Autowired
     ScamReportRepository scamReportService;
     @Autowired
@@ -61,21 +36,6 @@ public class ExpVerifyScamReportController {
         System.out.println(sr.get(0).getId());
         return mav;
     }
-
-//    @PostMapping({"/validateStatus/{id}"})
-//    public ModelAndView updateVerificationStatus(Model model, @PathVariable Long id) {
-//        System.out.println("validate status");
-//        List<ScamReport> srv = scamReportService.findAll();
-//
-//        ModelAndView mav = new ModelAndView("validateStatus");
-//        mav.addObject("srv", srv);
-//
-//        System.out.println("id" + id);
-//        evs.updateVerificationFlag(id);
-//
-//
-//        return mav;
-//    }
 
 
     @PostMapping({"/validateStatus/{id}"})
@@ -92,7 +52,6 @@ public class ExpVerifyScamReportController {
 
     @PostMapping("/submit/{id}")
     public String submitForm(@ModelAttribute("w") Website w, @PathVariable Long id) {
-        System.out.println("bkwas");
         System.out.println(w);
         evs.updateVerificationFlag(id);
         Website websiteValidated = wrepo.save(w);
