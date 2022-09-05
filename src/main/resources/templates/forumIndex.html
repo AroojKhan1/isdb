@@ -108,12 +108,18 @@
     <textarea type="text" placeholder="Whats up techie" th:field="*{content}"/><br/>
 
     <label>date:</label>
-    <input type="date" th:field="*{date}"/><br/>
+    <input type="date" th:field="*{date}"  /><br/>
+
+<!--    <p id="thedate"></p>-->
+
     <div>
         <script>
             date = new Date().toLocaleDateString();
-            document.write(date);
+            // document.write(date);
+            document.getElementById('thedate').innerHTML = date;
+
         </script>
+
     </div>
 
 

@@ -27,6 +27,7 @@
     </div>
 </nav>
 
+<!--CREATE make a post button here-->
 <br>
 <br/>
 <br>
@@ -59,24 +60,27 @@
     <tr th:each="posts: ${pm}">
 
 
-        <h4>title:</h4>
+
         <td th:text = "${posts.title}"/>
         <br>
         <br/>
 
-        <h4>Content</h4>
+
         <p style="padding: 10px; border: 2px solid cornflowerblue;">
 
         <td th:text = "${posts.content}"/>
         </p>
 
-        <br>
-        <br/>
 
-        <h4>date</h4>
+
         <td th:text = "${posts.date}"/>
         <br>
         <br/>
+
+<!--        Add a reply/comment button here, this will lead to reply.html
+            this will have same stuff as forum indexx except for
+            the title. also make the reply appear after the
+            post not at the end of the page-->
 
     </tr>
 
