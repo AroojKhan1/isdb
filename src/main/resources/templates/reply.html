@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="ISO-8859-1">
-    <title>Forum</title>
+    <title>Reply</title>
 
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
-    <title>Forum</title>
+    <title>Reply</title>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -21,7 +21,7 @@
                     class="icon-bar"></span> <span class="icon-bar"></span> <span
                     class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#" th:href="@{/}">Forum
+            <a class="navbar-brand" href="#" th:href="@{/}">Reply
             </a>
 
         </div>
@@ -31,14 +31,14 @@
 <br>
 <br>
 
-<h2>What's up techie</h2>
+<h2>Reply here</h2>
 <div class="main">
-<!--    <div class="header">-->
-<!--    </div>-->
-<!--    <textarea></textarea>-->
+    <!--    <div class="header">-->
+    <!--    </div>-->
+    <!--    <textarea></textarea>-->
 
-<!--    <div class="comments">-->
-<!--    </div>-->
+    <!--    <div class="comments">-->
+    <!--    </div>-->
 </div>
 
 
@@ -102,16 +102,16 @@
 
 <!--<a class="button button2" href="#" th:href="@{/}"> test</a>-->
 
-<form action="#" th:action="@{/forumIndex}" method="post" th:object="${p}">
+<form action="#" th:action="@{/reply}" method="post" th:object="${t}">
 
-    <input type="text" placeholder="Summarize your post" th:field="*{title}"/><br/>
 
-    <textarea type="text" placeholder="Whats up techie" rows="4" cols="50" th:field="*{content}"/><br/>
+
+    <textarea type="text" placeholder="Type your reply..." rows="4" cols="50" th:field="*{content}"/><br/>
 
     <label>date:</label>
     <input type="date" th:field="*{date}"  /><br/>
 
-<!--    <p id="thedate"></p>-->
+    <!--    <p id="thedate"></p>-->
 
     <div>
         <script>
@@ -123,15 +123,10 @@
 
     </div>
 
-
-    <!--    <label>time:</label>-->
-<!--    <input type="time" th:field="*{time}"/><br/>-->
-
-
     <br>
     <br/>
-        <button type="submit" class="btn btn-success"> post </button>
-        <span>Already posted? <a href="/" th:href="@{/forumThread}">Visit Knowledge Base</a>
+    <button type="submit" class="btn btn-success"> post </button>
+    <span>Already posted? <a href="/" th:href="@{/forumThread}">Visit Knowledge Base</a>
     </span>
 </form>
 

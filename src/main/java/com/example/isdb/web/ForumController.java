@@ -1,6 +1,7 @@
 package com.example.isdb.web;
 
 import com.example.isdb.Repository.PostRepository;
+import com.example.isdb.Repository.ThreadRepository;
 import com.example.isdb.Service.FetchWebsiteData;
 import com.example.isdb.model.Post;
 import com.example.isdb.model.User;
@@ -20,6 +21,9 @@ public class ForumController {
 
     @Autowired
     PostRepository pRepo;
+
+    @Autowired
+    ThreadRepository tRepo;
 
     private User u;
     private SpringMVCController smvc;
@@ -53,5 +57,26 @@ public class ForumController {
         ModelAndView mav = new ModelAndView("forumThread");
         mav.addObject("pm", pm);
         return mav;
+    }
+
+
+    @GetMapping("/reply")
+    public String getReplyForm(Model model) {
+        Thread t = new Thread();
+        model.addAttribute("t", t);
+
+        return "reply";
+    }
+
+    @PostMapping("/reply")
+    public String addReply(@ModelAttribute("t") Thread t) {
+        System.out.println(t);
+
+//        System.out.println(smvc.currentUserName());
+
+        Thread newThread = tRepo.save(t);
+
+
+        return "postMade";
     }
 }
