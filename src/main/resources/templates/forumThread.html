@@ -9,6 +9,8 @@
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
+
+
 </head>
 <body>
 
@@ -38,28 +40,15 @@
 <div class = "container">
 
 
-<!--    <table class="table table-bordered table-striped">-->
-<!--        <thread>-->
-<!--            <tr>-->
-<!--                <th>title</th>-->
-<!--                <th>Content</th>-->
-<!--                <th>date</th>-->
-
-
-<!--            </tr>-->
-<!--        </thread>-->
-
-<!--        <tbody>-->
-<!--        <tr th:each="posts: ${pm}">-->
-<!--            <td th:text = "${posts.title}"/>-->
-<!--            <td th:text = "${posts.content}"/>-->
-<!--            <td th:text = "${posts.date}"/>-->
-
-<!--        </tbody>-->
+<!--this is how to reverse loop-->
+    <li th:each="i : ${#numbers.sequence(pm.size() - 1, 0, -1)}"
+        th:with="n=${pm[i]}">
+        <h4 type="text" th:text="${n.content}"></h4>
+    </li>
 
     <tr th:each="posts: ${pm}">
 
-
+    <!--  make it display from lattest to oldest-->
 
         <td th:text = "${posts.title}"/>
         <br>
@@ -118,9 +107,16 @@
         color: white;
     }
 
+    p {
+        word-wrap:break-word;
+    }
+
+
+
 
 
 </style>
+
 
 
 <a class = "button button1" href="#" th:href="@{/home}">Report a cyber crime!</a>

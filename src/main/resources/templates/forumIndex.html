@@ -23,6 +23,7 @@
             </button>
             <a class="navbar-brand" href="#" th:href="@{/static}">Forum
             </a>
+
         </div>
     </div>
 </nav>
@@ -105,7 +106,7 @@
 
     <input type="text" placeholder="Summarize your post" th:field="*{title}"/><br/>
 
-    <textarea type="text" placeholder="Whats up techie" th:field="*{content}"/><br/>
+    <textarea type="text" placeholder="Whats up techie" rows="4" cols="50" th:field="*{content}"/><br/>
 
     <label>date:</label>
     <input type="date" th:field="*{date}"  /><br/>
@@ -130,11 +131,13 @@
     <br>
     <br/>
         <button type="submit" class="btn btn-success"> post </button>
-    <!--    <span>Already reported? <a href="/" th:href="@{/scamReports}">View  here</a>-->
+        <span>Already posted? <a href="/" th:href="@{/forumThread}">Visit Knowledge Base</a>
     </span>
 </form>
 
 
 
+
+<!--add scroll to top button-->
 </body>
 </html>
