@@ -20,26 +20,19 @@
         /*    border: 3px solid green;*/
         /*}*/
 
-        div {
-            width: 600px;
-            border: 15px solid green;
-            padding: 50px;
-            margin: 20px;
-            text-align: center;
-        }
-
-        /*center {*/
-        /*    margin: auto;*/
-        /*    width: 50%;*/
-        /*    border: 3px solid green;*/
-        /*    padding: 10px;*/
+        /*div {*/
+        /*    width: 600px;*/
+        /*    border: 15px solid green;*/
+        /*    padding: 50px;*/
+        /*    margin: 20px;*/
+        /*    text-align: center;*/
         /*}*/
+
     </style>
 </head>
 <body>
 <div align="center">
     <h2>Validation Succeeded!</h2>
-<!--    <h3 th:text= "${message}"> message </h3>-->
 
     <span>Website name:</span><span th:text="${w.website_name}"></span><br/>
     <span>URL:</span><span th:text="${w.url}"></span><br/>
@@ -56,14 +49,12 @@
 
     <span>Loaded with ads?:</span><span th:text="${w.ads}"></span><br/>
 
-
-
     <span>Funky UI?:</span><span th:text="${w.funky_ui}"></span><br/>
     <span>Flashy images??:</span><span th:text="${w.flashy_images}"></span><br/>
     <span>offers gifts?:</span><span th:text="${w.offers_gifts}"></span><br/>
 
 
-    <span>scampercentage:</span><span th:text="${w.scam_percentage}"></span><br/>
+    <span>scampercentage:</span><span th:text="${w.scam_percentage*100}"></span><br/>
 
 
 <!--    <div>-->
@@ -72,17 +63,86 @@
 <!--        </form>-->
 <!--    </div>-->
 </div>
-<div>
-    <a class="button button1" href="#" th:href="@{/home}">Return home</a>
+</body>
+
+<div class="circle-wrap">
+    <div class="circle">
+
+        <div class="mask full">
+            <div class="fill"></div>
+        </div>
+
+        <div class="mask half">
+            <div class="fill"></div>
+        </div>
+
+        <div class="inside-circle" >
+            <span th:text="${(w.scam_percentage*100)}" ></span>
+        </div>
+
+    </div>
+
+<style>
+    .circle-wrap {
+        margin: 50px auto;
+        width: 150px;
+        height: 150px;
+        background: #e6e2e7;
+        border-radius: 50%;
+    }
+    .circle-wrap .circle .mask,
+    .circle-wrap .circle .fill {
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        border-radius: 50%;
+    }
+
+    .circle-wrap .circle .mask {
+        clip: rect(0px, 150px, 150px, 75px);
+    }
+    .circle-wrap .circle .mask .fill {
+        clip: rect(0px, 75px, 150px, 0px);
+        background-color: crimson;
+    }
+    .circle-wrap .circle .mask.full,
+    .circle-wrap .circle .fill {
+        animation: fill ease-in-out 3s;
+        transform: rotate(126deg);
+    }
+
+    @keyframes fill {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(126deg);
+        }
+    }
+
+    .circle-wrap .inside-circle {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        background: #fff;
+        line-height: 130px;
+        text-align: center;
+        margin-top: 10px;
+        margin-left: 10px;
+        position: absolute;
+        z-index: 100;
+        font-weight: 700;
+        font-size: 2em;
+    }
+
+</style>
 </div>
 
 
 
-</body>
-
-
-
-
-
+<div align="center">
+    <a class="button button1" href="#" th:href="@{/home}">Return home</a>
+</div>
 </html>
+
 

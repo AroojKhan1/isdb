@@ -116,12 +116,17 @@
     <a class = "button button3" href="#" th:href="@{/userScamReport}">Report a Scam</a>
     <a class = "button button4" href="#" th:href="@{/expScamReport}">Verify Scam Reports</a>
     <a class = "button button3" href="#" th:href="@{/forumIndex}">Knowledge Hub</a>
+<!--    <a class = "button button1" href="#" th:href="@{/account}">Account details</a>-->
 </div>
 
+
+welcome
 <span>[[${#request.remoteUser}]]</span>
 <!--<div>-->
 <!--    <img th:src="@{src/main/resources/images/CBISDB logo.png}"/>-->
     <img th:src="@{/resources/CBISDB logo.png}"/>
+
+<!--<span th:text="${#authentication.getPrincipal().getUserId()}"></span>-->
 <!--</div>-->
 
 

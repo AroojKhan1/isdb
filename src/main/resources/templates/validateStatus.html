@@ -47,17 +47,17 @@
 
         <div>
             <label>Website name:</label>
-            <input type="text" th:field="*{website_name}"/><br/>
+            <input type="text" required th:field="*{website_name}"/><br/>
         </div>
 
         <div>
             <label>Website URL:</label>
-            <input type="text" th:field="*{url}"/><br/>
+            <input type="text" required th:field="*{url}"/><br/>
         </div>
 
         <div>
             <label>Domain:</label>
-            <input type="text" th:field="*{domain_name}"/><br/>
+            <input type="text" required th:field="*{domain_name}"/><br/>
         </div>
 
         <div>
@@ -72,7 +72,7 @@
 
         <div>
             <label>Secure?: </label>
-            <input type="text" th:field="*{secure}"/><br/>
+            <input type="text" required maxlength="1" th:field="*{secure}"/><br/>
 
             <br/>
 
@@ -83,13 +83,13 @@
 
         <div>
             <label>Linked in employees:</label>
-            <input type="text" th:field="*{linked_in_emps}"/><br/>
+            <input type="text" required maxlength="1" th:field="*{linked_in_emps}"/><br/>
         </div>
 
 
         <div class="container">
             <label>Is this website less than 1 year old?:</label>
-            <input type="text" th:field="*{age}"/>
+            <input type="text" required maxlength="1" th:field="*{age}"/>
 
             <br/>
 
@@ -101,37 +101,37 @@
 
         <div>
             <label>Redirects?:</label>
-            <input type="text" th:field="*{redirected}"/><br/>
+            <input type="text" required maxlength="1" th:field="*{redirected}"/><br/>
         </div>
 
         <div>
             <label>Similar Domain?:</label>
-            <input type="text" th:field="*{similar_domain}"/><br/>
+            <input type="text" required maxlength="1" th:field="*{similar_domain}"/><br/>
         </div>
 
         <div>
             <label>Unnecessary Popups?:</label>
-            <input type="text" th:field="*{pop_ups}"/><br/>
+            <input type="text" required maxlength="1" th:field="*{pop_ups}"/><br/>
         </div>
 
         <div>
             <label>Loaded with ads?:</label>
-            <input type="text" th:field="*{ads}"/><br/>
+            <input type="text" required maxlength="1" th:field="*{ads}"/><br/>
         </div>
 
         <div>
             <label>Funky UI?:</label>
-            <input type="text" th:field="*{funky_ui}"/><br/>
+            <input type="text" required maxlength="1" th:field="*{funky_ui}"/><br/>
         </div>
 
         <div>
             <label>Flashy images?:</label>
-            <input type="text" th:field="*{flashy_images}"/><br/>
+            <input type="text" required maxlength="1" th:field="*{flashy_images}"/><br/>
         </div>
 
         <div>
             <label>offers gifts?:</label>
-            <input type="text" th:field="*{offers_gifts}"/><br/>
+            <input type="text" required maxlength="1" th:field="*{offers_gifts}"/><br/>
         </div>
 
 
@@ -148,6 +148,8 @@
     <!--    <form method="POST" th:action="@{'/submit/' + ${id}}">-->
     <!--    </form>-->
 </div>
+
+
 
 
 

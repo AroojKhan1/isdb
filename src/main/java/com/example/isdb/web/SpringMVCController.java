@@ -14,4 +14,5 @@ public class SpringMVCController {
     public String currentUserName(Authentication authentication) {
         return authentication.getName();
     }
+
 }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="ISO-8859-1">
     <title>CBISDB</title>
@@ -46,7 +46,11 @@
 
 <div class="container">
     <h1>Community Based Internet Scam Database</h1>
-    Welcome <span sec:authentication="principal.username"> User</span>
+    Welcome
+    <span sec:authentication="principal.username"> User</span>
+<!--    <span sec:authentication="principal.first_name">Firstname</span>-->
+<!--    <span sec:authentication="principal.id"></span>-->
+<!--    <span sec:authentication="principal.authorities"></span>-->
 </div>
 
 <div class="container">

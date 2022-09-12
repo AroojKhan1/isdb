@@ -45,6 +45,12 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(user);
     }
 
+//    @Override
+//    public User getByEmail(String email) {
+//
+//        return ;
+//    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
@@ -58,4 +64,6 @@ public class UserServiceImpl implements UserService {
     private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
         return roles.stream().map(role-> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
     }
+
+
 }
