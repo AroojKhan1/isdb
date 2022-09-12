@@ -41,6 +41,8 @@
 <div class="container">
 
 
+
+
     <!--this is how to reverse loop-->
     <tr
             th:each="i : ${#numbers.sequence(pm.size() - 1, 0, -1)}"
@@ -65,24 +67,21 @@
         </p>
 
 
-        <a class="button replybutton" href="#" th:href="@{/reply}">Reply</a>
-        <a class="button showRepliesbutton" href="#" th:href="@{/home}">View replies</a>
+
+
 
 
     </tr>
 
 
-    <!--        Add a reply/comment button here, this will lead to reply.html
+    <!--        @todo Add a reply/comment button here, this will lead to reply.html
                 this will have same stuff as forum indexx except for
                 the title. also make the reply appear after the
                 post not at the end of the page-->
 
 
-    <!--    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>-->
-    <i
-            class="fa fa-hand-o-up" style="font-size:36px" onclick="topFunction()" id="myBtn" title="Go to top">
 
-    </i>
+    <i class="fa fa-hand-o-up" style="font-size:36px" onclick="topFunction()" id="myBtn" title="Go to top"></i>
 </div>
 
 <style>

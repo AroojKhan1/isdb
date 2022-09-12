@@ -41,11 +41,63 @@
     <br>
     <br/>
     <form th:action="@{'/submit/' + ${id}}" method="post" th:object="${w}">
+        <div>
+            Please type y for yes and n for no.
+        </div>
 
         <div>
-            <label>Unnecessary Popups?:</label>
-            <input type="text" th:field="*{pop_ups}"/><br/>
+            <label>Website name:</label>
+            <input type="text" th:field="*{website_name}"/><br/>
         </div>
+
+        <div>
+            <label>Website URL:</label>
+            <input type="text" th:field="*{url}"/><br/>
+        </div>
+
+        <div>
+            <label>Domain:</label>
+            <input type="text" th:field="*{domain_name}"/><br/>
+        </div>
+
+        <div>
+            <label>Virus Scan:</label>
+            <input type="text" required maxlength="1"  th:field="*{virus_scan}"/><br/>
+
+            <br/>
+            <a href="https://www.isithacked.com/">(run a virus scan)</a>
+            <br/>
+        </div>
+
+
+        <div>
+            <label>Secure?: </label>
+            <input type="text" th:field="*{secure}"/><br/>
+
+            <br/>
+
+            (look for little lock sign in front of url)
+
+            <br/>
+        </div>
+
+        <div>
+            <label>Linked in employees:</label>
+            <input type="text" th:field="*{linked_in_emps}"/><br/>
+        </div>
+
+
+        <div class="container">
+            <label>Is this website less than 1 year old?:</label>
+            <input type="text" th:field="*{age}"/>
+
+            <br/>
+
+            <a href="https://whois.domaintools.com/">(Find age)</a>
+
+            <br/>
+        </div>
+
 
         <div>
             <label>Redirects?:</label>
@@ -53,25 +105,18 @@
         </div>
 
         <div>
-            <label>Loaded with ads?:</label>
-            <input type="text" th:field="*{ads}"/><br/>
+            <label>Similar Domain?:</label>
+            <input type="text" th:field="*{similar_domain}"/><br/>
         </div>
 
-        <div class="container">
-            <label>How old is this website?:</label>
-            <input type="text" th:field="*{age}"/>
+        <div>
+            <label>Unnecessary Popups?:</label>
+            <input type="text" th:field="*{pop_ups}"/><br/>
+        </div>
 
-
-            <!--            <a href="https://whois.domaintools.com/">-->
-            <!--                <input type="button" value="Find age" />-->
-            <!--            </a>-->
-            <br/>
-            <span>Dont know how old it is?
-                <a href="https://whois.domaintools.com/">(Find age)</a>
-            </span>
-
-
-            <br/>
+        <div>
+            <label>Loaded with ads?:</label>
+            <input type="text" th:field="*{ads}"/><br/>
         </div>
 
         <div>
@@ -103,6 +148,8 @@
     <!--    <form method="POST" th:action="@{'/submit/' + ${id}}">-->
     <!--    </form>-->
 </div>
+
+
 
 
 </body>

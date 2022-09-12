@@ -1,6 +1,5 @@
 package com.example.isdb.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -41,35 +40,31 @@ public class Post {
     @Column(name = "time")
     private Time time;
 
-
+    @ManyToOne
+    Replies reply;
 
 //    private Time currentTime;
 
 
-//
-//    @Column (name="user_type")
-//    private String user_type;
 
-
-    //    @Column(name = "current_date")
-//    @Temporal(TemporalType.TIMESTAMP)
-//    private java.util.Date current_date;
-    @OneToMany(mappedBy = "post")
-    private Set<Thread> threads;
+//    @OneToMany(mappedBy = "post")
+//    private Set<Replies> replies;
 
     public Post() {
 
     }
 
-    public Post(long id, long user_id, String title, String content, Date date, Time time, Set<Thread> threads) {
+    public Post(long id, long user_id, String title, String content, Date date, Time time, Set<Replies> replies) {
         this.id = id;
         this.user_id = user_id;
         this.title = title;
         this.content = content;
         this.date = date;
         this.time = time;
-        this.threads = threads;
+//        this.replies = replies;
     }
+
+
 
     public long getId() {
         return id;
@@ -119,11 +114,11 @@ public class Post {
         this.time = time;
     }
 
-    public Set<Thread> getThreads() {
-        return threads;
-    }
-
-    public void setThreads(Set<Thread> threads) {
-        this.threads = threads;
-    }
+//    public Set<Replies> getReplies() {
+//        return replies;
+//    }
+//
+//    public void setReplies(Set<Replies> replies) {
+//        this.replies = replies;
+//    }
 }

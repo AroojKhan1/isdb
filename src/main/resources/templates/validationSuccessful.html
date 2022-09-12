@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,20 +41,48 @@
     <h2>Validation Succeeded!</h2>
 <!--    <h3 th:text= "${message}"> message </h3>-->
 
-    <span>Unnecessary Popups?:</span><span th:text="${w.pop_ups}"></span><br/>
+    <span>Website name:</span><span th:text="${w.website_name}"></span><br/>
+    <span>URL:</span><span th:text="${w.url}"></span><br/>
+    <span>Domain:</span><span th:text="${w.domain_name}"></span><br/>
+
+    <span>Vitrus Scan:</span><span th:text="${w.virus_scan}"></span><br/>
+    <span>Secure?:</span><span th:text="${w.secure}"></span><br/>
+
+    <span>Linked in employees:</span><span th:text="${w.linked_in_emps}"></span><br/>
+    <span>Age?:</span><span th:text="${w.age}"></span><br/>
     <span>Redirects?:</span><span th:text="${w.redirected}"></span><br/>
+    <span>Similar Domain?:</span><span th:text="${w.similar_domain}"></span><br/>
+    <span>Unnecessary Popups?:</span><span th:text="${w.pop_ups}"></span><br/>
+
     <span>Loaded with ads?:</span><span th:text="${w.ads}"></span><br/>
 
-    <span>Age?:</span><span th:text="${w.age}"></span><br/>
+
 
     <span>Funky UI?:</span><span th:text="${w.funky_ui}"></span><br/>
-    <span>Redirects?:</span><span th:text="${w.redirected}"></span><br/>
     <span>Flashy images??:</span><span th:text="${w.flashy_images}"></span><br/>
-
     <span>offers gifts?:</span><span th:text="${w.offers_gifts}"></span><br/>
 
+
+    <span>scampercentage:</span><span th:text="${w.scam_percentage}"></span><br/>
+
+
+<!--    <div>-->
+<!--        <form method="POST" th:action="@{'/calculate/' + ${w.id}}">-->
+<!--            <button type="submit" class="button button1">Validate Status</button>-->
+<!--        </form>-->
+<!--    </div>-->
+</div>
+<div>
+    <a class="button button1" href="#" th:href="@{/home}">Return home</a>
 </div>
 
 
+
 </body>
+
+
+
+
+
 </html>
+

@@ -32,14 +32,7 @@
 <br>
 
 <h2>Reply here</h2>
-<div class="main">
-    <!--    <div class="header">-->
-    <!--    </div>-->
-    <!--    <textarea></textarea>-->
 
-    <!--    <div class="comments">-->
-    <!--    </div>-->
-</div>
 
 
 <style>
@@ -83,36 +76,15 @@
         color: white;
     }
 
-    /*textarea {*/
-    /*    width: 60%;*/
-    /*    height: 80px;*/
-    /*}*/
-
-
 </style>
 
 
-<!--<input type="text" id="content" style="width: 500px; height: 200px">-->
-
-
-<!--<a class="navbar-brand" href="#" th:href="@{/}">Website List</a>-->
-<!--<button class="button button1" >Website db</button>-->
-<!--<a class="button button1" href="#" th:href="@{/forumIndex}">PostHere</a>-->
-
-
-<!--<a class="button button2" href="#" th:href="@{/}"> test</a>-->
-
-<form action="#" th:action="@{/reply}" method="post" th:object="${t}">
-
-
+<form action="#" th:action="@{/reply}" method="post" th:object="${r}">
 
     <textarea type="text" placeholder="Type your reply..." rows="4" cols="50" th:field="*{content}"/><br/>
 
     <label>date:</label>
-    <input type="date" th:field="*{date}"  /><br/>
-
-    <!--    <p id="thedate"></p>-->
-
+    <input type="date" th:field="*{date_time}"  /><br/>
     <div>
         <script>
             date = new Date().toLocaleDateString();
@@ -120,16 +92,19 @@
             document.getElementById('thedate').innerHTML = date;
 
         </script>
-
     </div>
 
-    <br>
-    <br/>
-    <button type="submit" class="btn btn-success"> post </button>
-    <span>Already posted? <a href="/" th:href="@{/forumThread}">Visit Knowledge Base</a>
-    </span>
 </form>
 
+
+<!--<form method="POST" th:action="@{'/postReply'  }">-->
+<!--    <button type="submit" class="button button1">post</button>-->
+<!--</form>-->
+    <button type="submit" class="btn btn-success"> post </button>
+<br>
+<br/>
+<span>Already posted? <a href="/" th:href="@{/forumThread}">Visit Knowledge Base</a>
+    </span>
 
 
 

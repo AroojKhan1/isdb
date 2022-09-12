@@ -1,7 +1,5 @@
 package com.example.isdb.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.util.Collection;
 
@@ -32,8 +30,6 @@ public class Website {
     @Column(name = "secure")
     private String secure;
 
-    @Column(name = "num_reports")
-    private Integer num_reports;
 
     @Column(name = "linked_in_emps")
     private String linked_in_emps;
@@ -73,7 +69,7 @@ public class Website {
 
     public Website(Long id, String url, double scam_percentage, String domain_name, String website_name,
                    String similar_domain, String virus_scan, String redirected, String secure,
-                   Integer num_reports, String linked_in_emps, String age) {
+                   String linked_in_emps, String age) {
         this.id = id;
         this.url = url;
         this.scam_percentage = scam_percentage;
@@ -83,13 +79,12 @@ public class Website {
         this.virus_scan = virus_scan;
         this.redirected = redirected;
         this.secure = secure;
-        this.num_reports = num_reports;
         this.linked_in_emps = linked_in_emps;
         this.age = age;
     }
 
     public Website(Long id, String website_name, String url, String domain_name, double scam_percentage,
-                   String virus_scan, String secure, Integer num_reports, String linked_in_emps, String age,
+                   String virus_scan, String secure, String linked_in_emps, String age,
                    String redirected, String similar_domain, String pop_ups, String ads, String funky_ui,
                    String flashy_images, String offers_gifts, Collection<ScamReport> reportedScams) {
         this.id = id;
@@ -99,7 +94,6 @@ public class Website {
         this.scam_percentage = scam_percentage;
         this.virus_scan = virus_scan;
         this.secure = secure;
-        this.num_reports = num_reports;
         this.linked_in_emps = linked_in_emps;
         this.age = age;
         this.redirected = redirected;
@@ -148,9 +142,6 @@ public class Website {
         return secure;
     }
 
-    public Integer getNum_reports() {
-        return num_reports;
-    }
 
     public String getLinked_in_emps() {
         return linked_in_emps;
@@ -196,9 +187,6 @@ public class Website {
         this.secure = secure;
     }
 
-    public void setNum_reports(Integer num_reports) {
-        this.num_reports = num_reports;
-    }
 
     public void setLinked_in_emps(String linked_in_emps) {
         this.linked_in_emps = linked_in_emps;
@@ -274,7 +262,6 @@ public class Website {
                 ", scam_percentage=" + scam_percentage +
                 ", virus_scan='" + virus_scan + '\'' +
                 ", secure='" + secure + '\'' +
-                ", num_reports=" + num_reports +
                 ", linked_in_emps='" + linked_in_emps + '\'' +
                 ", age='" + age + '\'' +
                 ", redirected='" + redirected + '\'' +
