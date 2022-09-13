@@ -1,9 +1,11 @@
 package com.example.isdb.web;
 
+import com.example.isdb.Repository.ThreadRepository;
 import com.example.isdb.Repository.UserRepository;
 import com.example.isdb.auth.IsdbUserDetail;
 import com.example.isdb.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class MainController {
 
+    @Autowired
+    UserRepository uRepo;
     @GetMapping("/login")
     public String login() {
         return "login";
@@ -27,8 +31,13 @@ public class MainController {
 
 
     @RequestMapping("/home")
-    public String Welcome(HttpServletRequest request) {
+    public String Welcome(HttpServletRequest request, Authentication authentication) {
         request.setAttribute("mode", "MODE_HOME");
+        String user_name =authentication.getName();
+        System.out.println("USERNAME HERE"+user_name);
+        User user = uRepo.getUserByUser_name("az@gmail.com");
+
+        System.out.println("USER info welcome " + user.getUser_type());
         return "home";
     }
 

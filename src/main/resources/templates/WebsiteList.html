@@ -8,7 +8,22 @@
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
+
 </head>
+<style>
+    table {
+        counter-reset: tableCount;
+    }
+    .counterCell:before {
+        content: counter(tableCount);
+        counter-increment: tableCount;
+    }
+    body{
+        calc();
+    }
+
+
+</style>
 
 <body>
 
@@ -39,19 +54,20 @@
         <thread>
             <tr>
                 <th>ID</th>
-                <th>url</th>
+                <th>Name</th>
+                <th>URL</th>
                 <th>Scam Percentage</th>
                 <th>Domain</th>
-                <th>Website Name</th>
-                <th>Similar Domain</th>
+
+                <th>Similar URL</th>
                 <th>Virus Scan</th>
                 <th>Redirected</th>
                 <th>Secure</th>
                 <th>LinkedIn Employees</th>
                 <th>Age</th>
-                <th>pop ups</th>
+                <th>Popups</th>
                 <th>ads</th>
-                <th>flashy Images</th>
+                <th>Flashy Images</th>
                 <th>Funky UI</th>
                 <th>Offers Gifts</th>
 
@@ -60,11 +76,13 @@
 
         <tbody>
         <tr th:each="website: ${wm}">
-            <td th:text = "${website.id}"/>
-            <td th:text = "${website.url}"/>
-            <td th:text = "${website.scam_percentage}"/>
-            <td th:text = "${website.domain_name}"/>
+<!--            <td th:text = "${website.id}"/>-->
+            <td class="counterCell"></td>
             <td th:text = "${website.website_name}"/>
+            <td th:text = "${website.url}"/>
+            <td th:text = "${website.scam_percentage*100}"/>
+            <td th:text = "${website.domain_name}"/>
+
             <td th:text = "${website.similar_domain}"/>
             <td th:text = "${website.virus_scan}"/>
             <td th:text = "${website.redirected}"/>
@@ -81,6 +99,7 @@
 
     </table>
 </div>
+
 
 
 

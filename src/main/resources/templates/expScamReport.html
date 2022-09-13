@@ -3,7 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Verify Scam Report</title>
+    <style>
+        body {
+            border: cornflowerblue;
+            padding: 20px 20px;
+            align-content: space-evenly;
+            alignment: center;
+            font-family: "Arial Black";
+        }
+        div {
+            margin: 100px;
+        }
 
+        label {
+            display: inline-block;
+            width: 150px;
+            text-align: left;
+
+            /*width: 320px;*/
+            /*padding: 10px;*/
+            /*border: 5px solid gray;*/
+            /*margin: 0;*/
+        }
+
+        div {
+            width: 320px;
+            padding: 10px;
+            border: 5px solid gray;
+            margin: 0;
+        }
+
+
+    </style>
 </head>
 <body>
 
@@ -11,6 +42,7 @@
  <h1>Verify Scam Report</h1>
 
  <style>
+
      .button {
          border: none;
          color: white;
@@ -36,7 +68,7 @@
      }
  </style>
 
- <div class = "container">
+ <div class = "container" align="center">
      <hr/>
      <table class="table table-bordered table-striped">
          <thread>
@@ -60,8 +92,10 @@
 
      </table>
  </div>
-
-
+<br>
+ <div align="center">
+     <a class="button button1" href="#" th:href="@{/home}">Return home</a>
+ </div>
 
 </body>
 </html>
