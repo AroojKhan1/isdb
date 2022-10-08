@@ -21,7 +21,22 @@
                     class="icon-bar"></span> <span class="icon-bar"></span> <span
                     class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#" th:href="@{/}">Scam Reports</a>
+            <div id="navbar" class="collapse navbar-collapse">
+                <a class="navbar-brand" href="#" th:href="@{/}">Home
+                </a>
+
+                <ul class="nav navbar-nav">
+
+                    <li><a href="#" th:href="@{/list}">Website List</a></li>
+                    <li><a href="#" th:href="@{/scamReports}">Scam Reports</a></li>
+                    <li><a href="#" th:href="@{/userScamReport}">Report a Scam</a></li>
+                    <li><a href="#" th:href="@{/expScamReport}">Verify Scam Reports</a></li>
+                    <li><a href="#" th:href="@{/forumIndex}">Knowledge Hub</a></li>
+                    <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+
+                </ul>
+
+            </div>
         </div>
     </div>
 </nav>
@@ -30,7 +45,9 @@
 <br>
 
 <div class = "container">
-
+    <h1>
+        Scam Reports
+    </h1>
     <hr/>
     <form th:action="@{/search}" method="get">
         <input type="text" name="keyword" th:value="${keyword}"  placeholder="Find by website name" size="50" >
@@ -54,7 +71,8 @@
 
         <tbody>
         <tr th:each="scamreport: ${sr}">
-            <td th:text = "${scamreport.id}"/>
+<!--            <td th:text = "${scamreport.id}"/>-->
+            <td class="counterCell"></td>
             <td th:text = "${scamreport.website_name}"/>
             <td th:text = "${scamreport.url}"/>
             <td th:text = "${scamreport.report}"/>
@@ -69,6 +87,15 @@
 </div>
 
 <style>
+    body{
+        background: lightgrey;
+        font-family: Candara;
+    }
+    table{
+        counter-reset: tableCount;
+        background: ghostwhite;
+    }
+    
     .button {
         border: none;
         color: white;
@@ -81,6 +108,7 @@
         transition-duration: 0.4s;
         cursor: pointer;
         /*left: 55%;*/
+        font-family: Candara;
         position: relative;
         left: 1225px;
     }

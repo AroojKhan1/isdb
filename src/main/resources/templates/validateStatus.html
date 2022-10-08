@@ -9,41 +9,63 @@
           crossorigin="anonymous">
 
     <style>
-        div {
-            margin: 10px;
+        body{
+            font-family: Candara;
+            background-color: lightgrey;
         }
+
 
         label {
             display: inline-block;
-            width: 150px;
+            width: 300px;
             text-align: left;
-
-            /*width: 320px;*/
-            /*padding: 10px;*/
-            /*border: 5px solid gray;*/
-            /*margin: 0;*/
         }
 
-        /*div {*/
-        /*    width: 320px;*/
-        /*    padding: 10px;*/
-        /*    border: 5px solid gray;*/
-        /*    margin: 0;*/
-        /*}*/
 
 
     </style>
 
 </head>
 <body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <div id="navbar" class="collapse navbar-collapse">
+                <a class="navbar-brand" href="#" th:href="@{/}">Home
+                </a>
+
+                <ul class="nav navbar-nav">
+
+                    <li><a href="#" th:href="@{/list}">Website List</a></li>
+                    <li><a href="#" th:href="@{/scamReports}">Scam Reports</a></li>
+                    <li><a href="#" th:href="@{/userScamReport}">Report a Scam</a></li>
+                    <li><a href="#" th:href="@{/expScamReport}">Verify Scam Reports</a></li>
+                    <li><a href="#" th:href="@{/forumIndex}">Knowledge Hub</a></li>
+                    <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+
 <div align="center">
     <h1>Validate Status Here</h1>
-    <br>
-    <br/>
+
+    <h3>
+        Please type y for yes and n for no.
+    </h3>
     <form th:action="@{'/submit/' + ${id}}" method="post" th:object="${w}">
-        <div>
-            Please type y for yes and n for no.
-        </div>
 
         <div>
             <label>Website name:</label>
@@ -64,7 +86,7 @@
             <label>Virus Scan:</label>
             <input type="text" required maxlength="1"  th:field="*{virus_scan}"/><br/>
 
-            <br/>
+
             <a href="https://www.isithacked.com/">(run a virus scan)</a>
             <br/>
         </div>
@@ -73,9 +95,6 @@
         <div>
             <label>Secure?: </label>
             <input type="text" required maxlength="1" th:field="*{secure}"/><br/>
-
-            <br/>
-
             (look for little lock sign in front of url)
 
             <br/>
@@ -91,8 +110,7 @@
             <label>Is this website less than 1 year old?:</label>
             <input type="text" required maxlength="1" th:field="*{age}"/>
 
-            <br/>
-
+            <br>
             <a href="https://whois.domaintools.com/">(Find age)</a>
 
             <br/>
@@ -134,9 +152,6 @@
             <input type="text" required maxlength="1" th:field="*{offers_gifts}"/><br/>
         </div>
 
-
-
-        <br>
         <br>
 
         <span>Already validated? <a href="/static" th:href="@{/list}">View  here</a></span>

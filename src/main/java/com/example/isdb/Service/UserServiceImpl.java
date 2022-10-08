@@ -34,10 +34,12 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
 
+//      public User(String firstName, String lastName, String user_name, String email, String user_type,
+//                String state, String qualification, String occupation, String company, String password, Collection<Role> roles) {
     @Override
     public User save(UserRegistrationDto registrationDto) {
         User user = new User(registrationDto.getFirstName(),
-                registrationDto.getLastName(),registrationDto.getEmail(), registrationDto.getUser_name(),
+                registrationDto.getLastName(), registrationDto.getUser_name(),registrationDto.getEmail(),
                 registrationDto.getUser_type(),registrationDto.getState(), registrationDto.getQualification(),
                 registrationDto.getOccupation(), registrationDto.getCompany(),
                 passwordEncoder.encode(registrationDto.getPassword()),  Arrays.asList(new Role("ROLE_USER")));

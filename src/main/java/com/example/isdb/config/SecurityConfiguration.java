@@ -1,7 +1,7 @@
 package com.example.isdb.config;
 
 import com.example.isdb.Service.UserService;
-import com.example.isdb.auth.IsdbUserDetailService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,10 +29,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    public UserDetailsService userDetailsService(){
-        return new IsdbUserDetailService();
-    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers(

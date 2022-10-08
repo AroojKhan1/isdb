@@ -9,44 +9,86 @@
           crossorigin="anonymous">
 
     <style>
-        div {
-            margin: 10px;
-        }
         label {
             display: inline-block;
             width: 150px;
             text-align: left;
         }
+        body{
+            background: lightcyan;
+            font-family: Candara;
+        }
     </style>
 
 </head>
 <body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+
+
+            <div id="navbar" class="collapse navbar-collapse">
+                <a class="navbar-brand" href="#" th:href="@{/}">Home
+                </a>
+
+                <ul class="nav navbar-nav">
+
+                    <li><a href="#" th:href="@{/list}">Website List</a></li>
+                    <li><a href="#" th:href="@{/scamReports}">Scam Reports</a></li>
+                    <li><a href="#" th:href="@{/userScamReport}">Report a Scam</a></li>
+                    <li><a href="#" th:href="@{/expScamReport}">Verify Scam Reports</a></li>
+                    <li><a href="#" th:href="@{/forumIndex}">Knowledge Hub</a></li>
+                    <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+
 <div align ="center">
     <h1>Report Cyber Crimes Here</h1>
     <br>
     <br/>
     <form action="#" th:action="@{/userScamReport}" method="post" th:object="${sr}">
-
+        <div>
         <label>Website Name:</label>
         <input type="text" th:field="*{website_name}" /><br/>
+        </div>
 
         <div>
             <label>URL:</label>
             <input type="text" th:field="*{url}" /><br/>
         </div>
 
-
+        <div>
         <label>Report:</label>
         <input type="text" th:field="*{report}" /><br/>
+        </div>
 
+        <div>
         <label>UserType:</label>
         <input type="text" th:field="*{user_type}" /><br/>
+        </div>
 
 <!--        <label>user_type:</label>-->
 <!--        <input type="text" th:field="*{user_type}" /><br/>-->
         <br>
         <br/>
         <button type="submit" class="btn btn-success"> Report</button>
+        <br>
+        <br/>
         <span>Already reported? <a href="/static" th:href="@{/scamReports}">View  here</a>
         </span>
     </form>

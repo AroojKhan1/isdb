@@ -1,4 +1,4 @@
-package com.example.tryingsmth;
+package com.example.isdb;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
