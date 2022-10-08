@@ -13,7 +13,8 @@
 
     <style>
         body{
-            background: lightcyan;
+            background: lightblue;
+            font-family: Candara;
 
         }
     </style>
@@ -30,7 +31,22 @@
                     class="icon-bar"></span> <span class="icon-bar"></span> <span
                     class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#" th:href="@{/}">Thread</a>
+            <div id="navbar" class="collapse navbar-collapse">
+                <a class="navbar-brand" href="#" th:href="@{/}">Home
+                </a>
+
+                <ul class="nav navbar-nav">
+
+                    <li><a href="#" th:href="@{/list}">Website List</a></li>
+                    <li><a href="#" th:href="@{/scamReports}">Scam Reports</a></li>
+                    <li><a href="#" th:href="@{/userScamReport}">Report a Scam</a></li>
+                    <li><a href="#" th:href="@{/expScamReport}">Verify Scam Reports</a></li>
+                    <li><a href="#" th:href="@{/forumIndex}">Knowledge Hub</a></li>
+                    <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+
+                </ul>
+
+            </div>
         </div>
     </div>
 </nav>
@@ -38,15 +54,14 @@
 <!--CREATE make a post button here-->
 <br>
 <br/>
-<br>
-<br/>
-<br>
-<br/>
+
+
 
 <div class="container">
-
-
-
+    <h2>
+        Knowledge Hub
+    </h2>
+    <hr/>
 
     <!--this is how to reverse loop-->
     <tr
