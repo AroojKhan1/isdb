@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.Optional;
 
 @Service
@@ -54,6 +56,7 @@ public class ExpVerifyService {
 
     public double calculateScamPercentage(Website w){
         double scampercentage = 0.0;
+        DecimalFormat df = new DecimalFormat("0.00");
 
         if("Y".equalsIgnoreCase(w.getSimilar_domain())){
             scampercentage = scampercentage+0.15;
@@ -64,10 +67,10 @@ public class ExpVerifyService {
         if("Y".equalsIgnoreCase(w.getRedirected())){
             scampercentage = scampercentage+0.08;
         }
-        if("Y".equalsIgnoreCase(w.getSecure())){
+        if("N".equalsIgnoreCase(w.getSecure())){
             scampercentage = scampercentage+0.10;
         }
-        if("Y".equalsIgnoreCase(w.getLinked_in_emps())){
+        if("N".equalsIgnoreCase(w.getLinked_in_emps())){
             scampercentage = scampercentage+0.05;
         }
         if("Y".equalsIgnoreCase(w.getAge())){
@@ -88,6 +91,9 @@ public class ExpVerifyService {
         if("Y".equalsIgnoreCase(w.getOffers_gifts())){
             scampercentage = scampercentage+0.07;
         }
+        df.setRoundingMode(RoundingMode.DOWN);
+        df.format(scampercentage);
+
         return scampercentage;
 
     }

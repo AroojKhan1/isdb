@@ -28,10 +28,12 @@
 
                 <ul class="nav navbar-nav">
 
-                    <li><a href="#" th:href="@{/list}">Website List</a></li>
+                    <li><a href="#" th:href="@{/list}">Website Reports</a></li>
                     <li><a href="#" th:href="@{/scamReports}">Scam Reports</a></li>
                     <li><a href="#" th:href="@{/userScamReport}">Report a Scam</a></li>
-                    <li><a href="#" th:href="@{/expScamReport}">Verify Scam Reports</a></li>
+                    <li>
+                        <a th:if="${user.user_type == 'expert'}" href="#" th:href="@{/expScamReport}">Verify Scam Reports</a>
+                    </li>
                     <li><a href="#" th:href="@{/forumIndex}">Knowledge Hub</a></li>
                     <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
 
@@ -50,11 +52,11 @@
         Scam Reports
     </h1>
     <hr/>
-    <form th:action="@{/search}" method="get">
-        <input type="text" name="keyword" th:value="${keyword}"  placeholder="Find by website name" size="50" >
-        <button type="submit" class="btn btn-info" >Search</button>
-        <button type="submit" class="btn btn-info" >Reset</button>
-    </form>
+<!--    <form th:action="@{/search}" method="get">-->
+<!--        <input type="text" name="keyword" th:value="${keyword}"  placeholder="Find by website name" size="50" >-->
+<!--        <button type="submit" class="btn btn-info" >Search</button>-->
+<!--        <button type="submit" class="btn btn-info" >Reset</button>-->
+<!--    </form>-->
     <br>
     <br/>
     <table class="table table-bordered table-striped">
@@ -89,7 +91,7 @@
 
 <style>
     body{
-        background: lightblue;
+
         font-family: Candara;
     }
     table {

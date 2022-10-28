@@ -22,13 +22,10 @@
     body{
         calc();
     }
-
-
-     body{
-         background: lightblue;
+    body{
          font-family: Candara;
-
      }
+
 
 
 
@@ -53,11 +50,12 @@
                 </a>
 
                 <ul class="nav navbar-nav">
-
-                    <li><a href="#" th:href="@{/list}">Website List</a></li>
+                    <li><a href="#" th:href="@{/list}">Website Reports</a></li>
                     <li><a href="#" th:href="@{/scamReports}">Scam Reports</a></li>
                     <li><a href="#" th:href="@{/userScamReport}">Report a Scam</a></li>
-                    <li><a href="#" th:href="@{/expScamReport}">Verify Scam Reports</a></li>
+                    <li>
+                        <a th:if="${user.user_type == 'expert'}" href="#" th:href="@{/expScamReport}">Verify Scam Reports</a>
+                    </li>
                     <li><a href="#" th:href="@{/forumIndex}">Knowledge Hub</a></li>
                     <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
 
@@ -72,7 +70,7 @@
 <br>
 <div align="center">
     <h1>
-        Reported Scams
+        Reported Websites
     </h1>
 </div>
 

@@ -13,8 +13,27 @@
 
     <style>
         body {
-            background: lightblue;
+
             font-family: Candara;
+
+
+        }
+
+        .flex-container {
+            display: flex;
+
+            /*this centers the text horizontally*/
+            justify-content: center;
+
+            /*this centers the text vertically*/
+            align-items: center;
+            font-family: Candara;
+            height: 170px;
+            width: 950px;
+            color: black;
+
+
+            background: white;
         }
     </style>
 
@@ -40,10 +59,13 @@
 
                 <ul class="nav navbar-nav">
 
-                    <li><a href="#" th:href="@{/list}">Website List</a></li>
+                    <li><a href="#" th:href="@{/list}">Website Reports</a></li>
                     <li><a href="#" th:href="@{/scamReports}">Scam Reports</a></li>
                     <li><a href="#" th:href="@{/userScamReport}">Report a Scam</a></li>
-                    <li><a href="#" th:href="@{/expScamReport}">Verify Scam Reports</a></li>
+
+                    <li>
+                        <a th:if="${user.user_type == 'expert'}" href="#" th:href="@{/expScamReport}">Verify Scam Reports</a>
+                    </li>
                     <li><a href="#" th:href="@{/forumIndex}">Knowledge Hub</a></li>
                     <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
 
@@ -56,6 +78,12 @@
 </nav>
 <br>
 <br>
+
+<!--<div align="center" th:if="${#authorization.expression('isAuthenticated()')}">-->
+<!--    <h1 th:inline="text">Hello, <span th:text="${#authentication.name}"></span>!</h1>-->
+<!--</div>-->
+
+
 
 
 <style>
@@ -133,21 +161,26 @@
 <!--<button class="button button1" >Website db</button>-->
 
 
-<div>
+<div align="center">
     <h1>Welcome to Community Based Internet Scam Database</h1>
 
-    <span sec:authentication="principal.username"> User</span>
-    <!--    <span th:text="${#authentication.getName()}"></span>-->
+    <div class = "flex-container">
+        <p>
+            Since its initial explosive growth during the dot com boom, the Internet has become a ubiquitous part of society. Despite its pervasiveness the trust of people has been eroding in online interactions. Many have trouble deciding whether they can trust the top results of google due to the amount of phishing and scam attacks out there. There's not enough work being done to spread the knowledge regarding how to recognize common scams. The existing tools are government run and do not provide reporting. There's a potential to build a consumer driven tool that provides reporting and transparent moderation. But such a tool does not exist yet. Hence we decided to create a CB-ISDB (community based - internet scam database). The goal is to create something that is similar to IMDB, is trustworthy and also educates people about the kinds of scams frequently happening around us.
 
-    <!--    <a class = "button button1" href="#" th:href="@{/account}">Account details</a>-->
+        </p>
+
+    </div>
+    <img src="https://www.stockvault.net/data/2015/06/30/174254/preview16.jpg" alt="img 1">
 </div>
+
 
 
 <!--welcome-->
 <!--<span>[[${#request.remoteUser}]]</span>-->
 <!--<div>-->
-<!--    <img th:src="@{src/main/resources/images/CBISDB logo.png}"/>-->
-<!--    <img th:src="@{/resources/CBISDB logo.png}"/>-->
+<!--    <img th:src="@{src/main/resources/images/CBISDB logo.png}">-->
+<!--    <img th:src="@{/resources/CBISDB logo.png}">-->
 <!--<img src="/pix/samples/15m.jpg" style="max-width:100%" alt="Sample picture">-->
 
 <!--<span th:text="${#authentication.getPrincipal().getUserId()}"></span>-->

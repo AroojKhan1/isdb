@@ -61,43 +61,9 @@ public class ExpVerifyScamReportController {
         System.out.println("Going to template?? " + w);
         model.addAttribute("w", w);
 
-        //@todo create service to calculate scam percentage
-//        Website websiteValidated = wrepo.save(w);
+
         return "validationSuccessful";
     }
 
-//
-//    @PostMapping("/userScamReport")
-//    public String submitForm(@ModelAttribute("sr") ScamReport sr){
-//
-//        ScamReport reportInserted = srepo.save(sr);
-//        return "reportSuccess";
-//    }
 
-//    @PostMapping("/submit/{id}")
-//    public String submitForm(@ModelAttribute("w") Website w, @PathVariable Long id) {
-//        System.out.println(w);
-//        evs.updateVerificationFlag(id);
-//        Website websiteValidated = wrepo.save(w);
-//        return "validationSuccessful";
-//    }
-
-//    @PostMapping("/calculate/{id}")
-//    public String calculatesp(Model model, @PathVariable Long id) {
-////        System.out.println(w);
-////        evs.updateVerificationFlag(id);
-////        Website websiteValidated = wrepo.save(w);
-//
-//                System.out.println(w);
-//
-//        w = evs.calculateScamPercentage(id);
-//        System.out.println("from CONTROLLER"+w);
-//        model.addAttribute("w", w);
-//
-//
-//        //@todo create service to calculate scam percentage
-////        Website websiteValidated = wrepo.save(w);
-//
-//        return "CalculateScamPercentage";
-//    }
 }

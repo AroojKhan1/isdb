@@ -15,7 +15,7 @@
             text-align: left;
         }
         body{
-            background: lightblue;
+
             font-family: Candara;
         }
     </style>
@@ -40,10 +40,12 @@
 
                 <ul class="nav navbar-nav">
 
-                    <li><a href="#" th:href="@{/list}">Website List</a></li>
+                    <li><a href="#" th:href="@{/list}">Website Reports</a></li>
                     <li><a href="#" th:href="@{/scamReports}">Scam Reports</a></li>
                     <li><a href="#" th:href="@{/userScamReport}">Report a Scam</a></li>
-                    <li><a href="#" th:href="@{/expScamReport}">Verify Scam Reports</a></li>
+                    <li>
+                        <a th:if="${user.user_type == 'expert'}" href="#" th:href="@{/expScamReport}">Verify Scam Reports</a>
+                    </li>
                     <li><a href="#" th:href="@{/forumIndex}">Knowledge Hub</a></li>
                     <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
 
